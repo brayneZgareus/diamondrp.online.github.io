@@ -222,6 +222,51 @@
     .espacio-extra {
       height: 30px;
     }
+
+    /* NUEVO ESTILO PARA EL BOTÓN INFORMACIÓN */
+    .info-toggle-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 8px 0;
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      text-align: left;
+      margin: 20px auto 0 auto;
+      user-select: none;
+    }
+
+    .info-toggle-btn::after {
+      content: " +";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    .info-toggle-btn.open::after {
+      content: " -";
+    }
+
+    .info-toggle-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background: transparent;
+      margin: 0 auto 20px auto;
+      max-width: 800px;
+      border-radius: 0 0 8px 8px;
+      text-align: center;
+    }
+
+    .info-toggle-content.open {
+      max-height: 500px; /* Ajusta según tu contenido */
+    }
   </style>
 </head>
 <body>
@@ -264,6 +309,15 @@
   <p class="descripcion">
     Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
   </p>
+
+  <!-- NUEVO BOTÓN Y CONTENIDO OCULTO CON ANIMACIÓN -->
+  <button id="btnInformacion" class="info-toggle-btn">Información</button>
+  <div id="infoContent" class="info-toggle-content">
+    <img src="tu_imagen.png" alt="Información" style="max-width: 100%; border-radius: 8px;" />
+    <p style="color: #ccc; margin-top: 10px; font-size: 14px; text-align: left; padding: 0 10px;">
+      Aquí va el texto descriptivo que quieras mostrar debajo de la imagen.
+    </p>
+  </div>
 
   <div class="espacio-extra"></div>
 
@@ -313,13 +367,3 @@
         btn.classList.toggle("openColor", menu.classList.contains("open"));
       });
     });
-
-    document.addEventListener("click", (e) => {
-      if (menu.classList.contains("open") && !menu.contains(e.target) && !menuIcon.contains(e.target)) {
-        menu.classList.remove("open");
-        botones.forEach(btn => btn.classList.remove("openColor"));
-      }
-    });
-  </script>
-</body>
-</html>
