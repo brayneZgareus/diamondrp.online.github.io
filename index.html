@@ -69,37 +69,31 @@
       font-weight: bold;
       cursor: pointer;
       padding: 10px 20px;
-      text-align: left; /* Alinea el texto a la izquierda */
+      text-align: left;
       color: white;
       transition: color 0.3s ease;
+      position: relative;
     }
 
-    #menu button#btnDiamantes.openColor::after {
+    #menu button::after {
       content: " +";
+      position: absolute;
+      right: 20px;
     }
 
-    #menu button#btnRangoSocio.openColor::after {
-      content: " +";
-    }
-
-    #menu button#btnAyuda.openColor::after {
-      content: " +";
-    }
-
-    #menu button#btnDiamantes::after,
-    #menu button#btnRangoSocio::after,
-    #menu button#btnAyuda::after {
+    #menu.open #btnDiamantes.openColor::after,
+    #menu.open #btnRangoSocio.openColor::after,
+    #menu.open #btnAyuda.openColor::after {
       content: " -";
     }
 
-    #menu.open button.openColor::after {
-      content: " +";
-    }
+    #menu button#btnDiamantes.openColor { color: #FFD700; }
+    #menu button#btnRangoSocio.openColor { color: #00CED1; }
+    #menu button#btnAyuda.openColor { color: #4b0082; }
 
     h1 {
       margin-top: 60px;
       color: white;
-      text-align: center;
     }
 
     .subtitulo {
@@ -142,7 +136,7 @@
     button[type="submit"] {
       padding: 10px 20px;
       border: none;
-      background-color: #222; /* Elimina el fondo morado, usa gris oscuro neutro */
+      background-color: #4b0082;
       color: #fff;
       border-radius: 5px;
       cursor: pointer;
@@ -228,15 +222,104 @@
     .espacio-extra {
       height: 30px;
     }
-
-    .info-adicional {
-      height: 50px;
-      visibility: hidden;
-    }
   </style>
 </head>
 <body>
-  <!-- Contenido original intacto... -->
-  <!-- Aquí iría el mismo contenido del <body> como en tu HTML original -->
+  <div id="menuIcon">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav id="menu">
+    <button id="btnDiamantes" class="openColor">Diamantes</button>
+    <button id="btnRangoSocio" class="openColor">Rango Socio</button>
+    <button id="btnAyuda" class="openColor">Ayuda</button>
+  </nav>
+
+  <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
+  <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
+
+  <form onsubmit="return validarFormulario()">
+    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" /><br />
+    <input type="password" id="contrasena" placeholder="Contraseña" /><br />
+    <button type="submit">Entrar</button>
+  </form>
+
+  <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">¿Olvidé mi contraseña?</a>
+
+  <div class="mensaje" id="mensaje"></div>
+  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+
+  <div class="separador"></div>
+  <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
+
+  <div class="carrusel">
+    <img src="casino.png" alt="Casino" style="display: block" />
+    <img src="peajes.png" alt="Sistema de Peajes" />
+    <img src="stripclub.png" alt="Stripclub Roleplay" />
+    <img src="apartamento.png" alt="Apartamentos Roleplay" />
+  </div>
+
+  <p class="descripcion">
+    Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
+  </p>
+
+  <div class="espacio-extra"></div>
+
+  <footer>
+    <br />&copy; 2025 Diamond RP | Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function validarFormulario() {
+      const nombreApellido = document.getElementById("nombreApellido").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (nombreApellido === "" || !nombreApellido.includes(" ")) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Escribe los datos de tu cuenta.";
+        return false;
+      }
+
+      if (contrasena.length < 6) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return false;
+      }
+
+      mensaje.style.color = "lightgreen";
+      mensaje.textContent = "¡Registro exitoso!";
+      return false;
+    }
+
+    let index = 0;
+    const imagenes = document.querySelectorAll(".carrusel img");
+
+    setInterval(() => {
+      imagenes[index].style.display = "none";
+      index = (index + 1) % imagenes.length;
+      imagenes[index].style.display = "block";
+    }, 3000);
+
+    const menuIcon = document.getElementById("menuIcon");
+    const menu = document.getElementById("menu");
+    const botones = menu.querySelectorAll("button");
+
+    menuIcon.addEventListener("click", () => {
+      menu.classList.toggle("open");
+      botones.forEach(btn => {
+        btn.classList.toggle("openColor", menu.classList.contains("open"));
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (menu.classList.contains("open") && !menu.contains(e.target) && !menuIcon.contains(e.target)) {
+        menu.classList.remove("open");
+        botones.forEach(btn => btn.classList.remove("openColor"));
+      }
+    });
+  </script>
 </body>
 </html>
