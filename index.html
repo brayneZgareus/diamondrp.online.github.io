@@ -1,99 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diamond Roleplay</title>
+  <meta charset="UTF-8">
+  <title>Diamond RP - Registro</title>
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
       background-image: url('fondo_convertido.png');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
-      color: white;
-      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .login-container {
+    h1 {
+      margin-top: 60px;
+      color: white;
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      margin-top: 5px;
+      color: #ccc;
+    }
+
+    .titulo-rol {
+      color: #4b0082;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    form {
+      margin-top: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
-      border-radius: 8px;
-      max-width: 300px;
-      margin: 50px auto 20px;
+      border-radius: 10px;
     }
 
-    input[type="text"], input[type="password"] {
-      width: 100%;
+    input[type="text"],
+    input[type="password"] {
       padding: 10px;
-      margin: 10px 0;
+      margin: 10px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
+      width: 250px;
+      font-size: 16px;
     }
 
     button {
-      background-color: #6a0dad;
-      color: white;
-      padding: 10px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 4px;
+      background-color: #4b0082;
+      color: #fff;
+      border-radius: 5px;
       cursor: pointer;
-      width: 100%;
+      font-weight: bold;
     }
 
-    a {
-      color: #ccc;
-      display: block;
-      margin-top: 10px;
-      font-size: 0.9em;
-      text-decoration: none;
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
     }
 
-    .discord-button {
-      background-color: #5865F2;
-      padding: 10px;
-      margin: 20px auto 10px;
-      border-radius: 4px;
-      color: white;
-      text-decoration: none;
+    .discord-link {
       display: inline-block;
-      width: auto;
+      margin-top: 30px;
+      background-color: #5865F2;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
     }
 
-    hr {
-      width: 80%;
-      border: 0;
-      height: 1px;
-      background-color: #ccc;
-      margin: 30px auto 10px;
+    .discord-link:hover {
+      background-color: #4752c4;
     }
 
-    .section-title {
-      font-size: 1.1em;
-      margin-top: 5px;
-      color: #ffffff;
+    .olvide-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .olvide-link:hover {
+      text-decoration: underline;
+    }
+
+    .separador {
+      width: 90%;
+      margin: 40px auto 20px;
+      border-top: 2px solid #ccc;
+    }
+
+    .titulo-actualizaciones {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .carrusel {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+
+    .carrusel img {
+      width: 100%;
+      display: none;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <h1><span style="color: #ffffff;">Diamond</span> <span style="color: #a349a4;">Roleplay</span></h1>
-  <p>Servidor de GTA:SA Online en Android & PC</p>
+  <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
+  <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
 
-  <div class="login-container">
-    <form>
-      <input type="text" placeholder="Nombre_Apellido" required />
-      <input type="password" placeholder="Contraseña" required />
-      <button type="submit">Entrar</button>
-    </form>
-    <a href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">Olvidé mi contraseña</a>
+  <form onsubmit="return validarFormulario()">
+    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
+    <input type="password" id="contrasena" placeholder="Contraseña"><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
+    ¿Olvidé mi contraseña?
+  </a>
+
+  <div class="mensaje" id="mensaje"></div>
+
+  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">
+    Únete a nuestro Discord
+  </a>
+
+  <div class="separador"></div>
+
+  <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
+
+  <div class="carrusel">
+    <img src="robo_casino.png" alt="Robo al Casino" style="display:block;">
+    <img src="peajes.png" alt="Sistema de Peajes">
+    <img src="stripclub.png" alt="Stripclub Roleplay">
+    <img src="apartamento.png" alt="Apartamentos Roleplay">
   </div>
 
-  <a class="discord-button" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+  <footer>
+    <br>&copy; 2025 Diamond RP. Todos los derechos reservados.
+  </footer>
 
-  <hr />
-  <p class="section-title">Nuestras Próximas Actualizaciones.</p>
+  <script>
+    function validarFormulario() {
+      const nombreApellido = document.getElementById("nombreApellido").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (nombreApellido === "" || !nombreApellido.includes(" ")) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Por favor, escribe tu nombre y apellido.";
+        return false;
+      }
+
+      if (contrasena.length < 6) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return false;
+      }
+
+      mensaje.style.color = "lightgreen";
+      mensaje.textContent = "¡Registro exitoso!";
+      return false;
+    }
+
+    // Carrusel
+    let index = 0;
+    const imagenes = document.querySelectorAll('.carrusel img');
+
+    setInterval(() => {
+      imagenes[index].style.display = 'none';
+      index = (index + 1) % imagenes.length;
+      imagenes[index].style.display = 'block';
+    }, 3000);
+  </script>
 
 </body>
 </html>
