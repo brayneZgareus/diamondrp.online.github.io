@@ -45,7 +45,7 @@
     #menu {
       position: fixed;
       top: 0;
-      left: -220px; /* oculto a la izquierda */
+      left: -220px;
       width: 200px;
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.85);
@@ -73,13 +73,13 @@
       transition: color 0.3s ease;
     }
     #menu button#btnDiamantes.openColor {
-      color: #FFD700; /* Amarillo */
+      color: #FFD700;
     }
     #menu button#btnRangoSocio.openColor {
-      color: #00CED1; /* Celeste */
+      color: #00CED1;
     }
     #menu button#btnAyuda.openColor {
-      color: #4b0082; /* Color botón "Entrar" */
+      color: #4b0082;
     }
 
     h1 {
@@ -107,7 +107,7 @@
       padding: 20px;
       border-radius: 10px;
       max-width: 90%;
-      width: 400px;
+      width: 360px; /* Reducido ligeramente */
     }
 
     input[type="text"],
@@ -196,7 +196,6 @@
       font-size: 14px;
     }
 
-    /* PÁRRAFO ALINEADO A LA IZQUIERDA */
     .descripcion {
       margin-top: 20px;
       max-width: 90%;
@@ -206,10 +205,13 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    .espacio-extra {
+      height: 30px;
+    }
   </style>
 </head>
 <body>
-  <!-- Menú hamburguesa -->
   <div id="menuIcon" aria-label="Abrir menú" role="button" tabindex="0">
     <div></div>
     <div></div>
@@ -262,12 +264,13 @@
     toda la información acerca del servidor.
   </p>
 
+  <div class="espacio-extra"></div>
+
   <footer>
     <br />&copy; 2025 Diamond RP. Todos los derechos reservados.
   </footer>
 
   <script>
-    // Validar formulario
     function validarFormulario() {
       const nombreApellido = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
@@ -300,7 +303,7 @@
       imagenes[index].style.display = "block";
     }, 3000);
 
-    // Menú hamburguesa funcionalidad
+    // Menú hamburguesa
     const menuIcon = document.getElementById("menuIcon");
     const menu = document.getElementById("menu");
     const btnDiamantes = document.getElementById("btnDiamantes");
@@ -312,7 +315,6 @@
       actualizarColoresMenu();
     });
 
-    // Cambiar color de las palabras al abrir/cerrar el menú
     function actualizarColoresMenu() {
       if (menu.classList.contains("open")) {
         btnDiamantes.classList.add("openColor");
@@ -325,7 +327,6 @@
       }
     }
 
-    // Cerrar menú si se hace clic fuera
     document.addEventListener("click", (e) => {
       if (
         menu.classList.contains("open") &&
@@ -336,7 +337,6 @@
         actualizarColoresMenu();
       }
     });
-
   </script>
 </body>
 </html>
