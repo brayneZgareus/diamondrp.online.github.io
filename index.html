@@ -23,8 +23,15 @@
 
     h1 {
       margin-top: 60px;
-      color: #800080; /* Morado oscuro */
       font-size: 32px;
+    }
+
+    .bienvenida {
+      color: white;
+    }
+
+    .nombre-servidor {
+      color: #800080; /* Morado oscuro */
     }
 
     .descripcion {
@@ -103,7 +110,9 @@
 </head>
 <body>
 
-  <h1>Bienvenido a Diamond RP</h1>
+  <h1>
+    <span class="bienvenida">Bienvenido a</span> <span class="nombre-servidor">Diamond Roleplay</span>
+  </h1>
   <p class="descripcion">Servidor de GTA:SA Online en Android & PC.</p>
 
   <form onsubmit="return validarFormulario()">
@@ -122,7 +131,7 @@
   </a>
 
   <footer>
-    <br>&copy; 2025 Diamond RP. Todos los derechos reservados.
+    <br>&copy; 2025 Diamond Roleplay. Todos los derechos reservados.
   </footer>
 
   <script>
