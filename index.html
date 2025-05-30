@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,245 +11,261 @@
       font-family: Arial, sans-serif;
       color: #fff;
       text-align: center;
-      background-image: url('fondo_convertido.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-    }#menuIcon {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+      overflow-x: hidden;
+      z-index: 0;
+    }
 
-#menuIcon div {
-  height: 4px;
-  background-color: white;
-  border-radius: 2px;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('fondo_convertido.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
 
-#menu {
-  position: fixed;
-  top: 0;
-  left: -220px;
-  width: 200px;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
-  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
-  padding-top: 60px;
-  transition: left 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+    #menuIcon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-#menu.open {
-  left: 0;
-}
+    #menuIcon div {
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
 
-#menu button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 20px;
-  text-align: left;
-  color: white;
-  transition: color 0.3s ease;
-  position: relative;
-}
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -220px;
+      width: 200px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-#menu button::after {
-  content: " +";
-  position: absolute;
-  right: 20px;
-}
+    #menu.open {
+      left: 0;
+    }
 
-#menu.open #btnDiamantes.openColor::after,
-#menu.open #btnRangoSocio.openColor::after,
-#menu.open #btnAyuda.openColor::after {
-  content: " -";
-}
+    #menu button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 20px;
+      text-align: left;
+      color: white;
+      transition: color 0.3s ease;
+      position: relative;
+    }
 
-#menu button#btnDiamantes.openColor { color: #FFD700; }
-#menu button#btnRangoSocio.openColor { color: #00CED1; }
-#menu button#btnAyuda.openColor { color: #4b0082; }
+    #menu button::after {
+      content: " +";
+      position: absolute;
+      right: 20px;
+    }
 
-h1 {
-  margin-top: 60px;
-  color: white;
-}
+    #menu.open #btnDiamantes.openColor::after,
+    #menu.open #btnRangoSocio.openColor::after,
+    #menu.open #btnAyuda.openColor::after {
+      content: " -";
+    }
 
-.subtitulo {
-  font-size: 18px;
-  margin-top: 5px;
-  color: #ccc;
-}
+    #menu button#btnDiamantes.openColor { color: #FFD700; }
+    #menu button#btnRangoSocio.openColor { color: #00CED1; }
+    #menu button#btnAyuda.openColor { color: #4b0082; }
 
-.titulo-rol {
-  color: #4b0082;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+    h1 {
+      margin-top: 60px;
+      color: white;
+    }
 
-form {
-  margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 90%;
-  width: 280px;
-}
+    .subtitulo {
+      font-size: 18px;
+      margin-top: 5px;
+      color: #ccc;
+    }
 
-input[type="text"],
-input[type="password"] {
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 16px;
-  text-align: center;
-}
+    .titulo-rol {
+      color: #4b0082;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-input::placeholder {
-  text-align: center;
-}
+    form {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      width: 280px;
+    }
 
-button[type="submit"] {
-  padding: 10px 20px;
-  border: none;
-  background-color: #4b0082;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  width: 100%;
-}
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
 
-.mensaje {
-  margin-top: 20px;
-  font-weight: bold;
-}
+    input::placeholder {
+      text-align: center;
+    }
 
-.discord-link {
-  display: inline-block;
-  margin-top: 30px;
-  background-color: #5865F2;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
+    button[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4b0082;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
 
-.discord-link:hover {
-  background-color: #4752c4;
-}
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+    }
 
-.olvide-link {
-  margin-top: 10px;
-  display: inline-block;
-  color: #ccc;
-  text-decoration: none;
-  font-size: 14px;
-}
+    .discord-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #5865F2;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
 
-.olvide-link:hover {
-  text-decoration: underline;
-}
+    .discord-link:hover {
+      background-color: #4752c4;
+    }
 
-.separador {
-  width: 90%;
-  margin: 40px auto 20px;
-  border-top: 2px solid #ccc;
-}
+    .olvide-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.titulo-actualizaciones {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+    .olvide-link:hover {
+      text-decoration: underline;
+    }
 
-.carrusel {
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-}
+    .separador {
+      width: 90%;
+      margin: 40px auto 20px;
+      border-top: 2px solid #ccc;
+    }
 
-.carrusel img {
-  width: 100%;
-  display: none;
-}
+    .titulo-actualizaciones {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-.descripcion {
-  margin-top: 20px;
-  max-width: 90%;
-  color: #ccc;
-  font-size: 16px;
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-}
+    .carrusel {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-.toggle-info {
-  margin: 20px auto;
-  text-align: left;
-  width: 90%;
-}
+    .carrusel img {
+      width: 100%;
+      display: none;
+    }
 
-.toggle-info button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: left;
-}
+    .descripcion {
+      margin-top: 20px;
+      max-width: 90%;
+      color: #ccc;
+      font-size: 16px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-.toggle-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-  text-align: left;
-  color: #ccc;
-  margin-top: 10px;
-}
+    .toggle-info {
+      margin: 20px auto;
+      text-align: left;
+      width: 90%;
+    }
 
-.toggle-content.open {
-  max-height: 500px;
-}
+    .toggle-info button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+    }
 
-.espacio-extra {
-  height: 30px;
-}
+    .toggle-content {
+      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      text-align: left;
+      color: #ccc;
+      margin-top: 10px;
+    }
 
-footer {
-  margin-top: auto;
-  margin-bottom: 20px;
-  color: #ddd;
-  font-size: 14px;
-}
+    .toggle-content.open {
+      display: block;
+      opacity: 1;
+      height: auto;
+    }
 
+    .espacio-extra {
+      height: 30px;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -256,37 +273,56 @@ footer {
     <div></div>
     <div></div>
     <div></div>
-  </div>  <nav id="menu">
+  </div>
+
+  <nav id="menu">
     <button id="btnDiamantes">Diamantes</button>
     <button id="btnRangoSocio">Rango Socio</button>
     <button id="btnAyuda">Ayuda</button>
-  </nav>  <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
-  <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>  <form onsubmit="return validarFormulario()">
+  </nav>
+
+  <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
+  <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
+
+  <form onsubmit="return validarFormulario()">
     <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" /><br />
     <input type="password" id="contrasena" placeholder="Contraseña" /><br />
     <button type="submit">Entrar</button>
-  </form><a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">¿Olvidé mi contraseña?</a>
+  </form>
 
+  <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">¿Olvidé mi contraseña?</a>
   <div class="mensaje" id="mensaje"></div>
-  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>  <div class="separador"></div>
-  <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>  <div class="carrusel">
+  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+
+  <div class="separador"></div>
+  <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
+
+  <div class="carrusel">
     <img src="casino.png" alt="Casino" style="display: block" />
     <img src="peajes.png" alt="Sistema de Peajes" />
     <img src="stripclub.png" alt="Stripclub Roleplay" />
     <img src="apartamento.png" alt="Apartamentos Roleplay" />
-  </div>  <p class="descripcion">
+  </div>
+
+  <p class="descripcion">
     Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
-  </p>  <div class="toggle-info">
+  </p>
+
+  <div class="toggle-info">
     <button onclick="toggleInfo(this)">Información +</button>
     <div class="toggle-content">
       <img src="infosv.png" alt="información" style="width: 100%; max-width: 600px; margin-top: 10px;" />
-      <p>Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP:sv.diamondrp.online
-      Debes de tener encuenta el uso de APK's de Terceros, ya que la mayoria contiene contenido como MODS y/o CLEOS ilegales los cuales son sancionados en nuestro servidor ya que
-      pueden tener ventajas sobre otras otros jugadores.</p>
+      <p>Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP: sv.diamondrp.online<br>
+      Debes de tener en cuenta el uso de APK's de Terceros, ya que la mayoría contiene contenido como MODS y/o CLEOS ilegales los cuales son sancionados en nuestro servidor ya que pueden tener ventajas sobre otros jugadores.</p>
     </div>
-  </div>  <div class="espacio-extra"></div>  <footer>
+  </div>
+
+  <div class="espacio-extra"></div>
+  <footer>
     <br />&copy; 2025 Diamond RP | Todos los derechos reservados.
-  </footer>  <script>
+  </footer>
+
+  <script>
     function validarFormulario() {
       const nombreApellido = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
@@ -338,11 +374,8 @@ footer {
     function toggleInfo(button) {
       const content = button.nextElementSibling;
       content.classList.toggle("open");
-      if (content.classList.contains("open")) {
-        button.textContent = "Información -";
-      } else {
-        button.textContent = "Información +";
-      }
+      button.textContent = content.classList.contains("open") ? "Información -" : "Información +";
     }
-  </script></body>
+  </script>
+</body>
 </html>
