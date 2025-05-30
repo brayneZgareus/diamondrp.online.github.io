@@ -1,129 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diamond Roleplay</title>
+  <meta charset="UTF-8">
+  <title>Diamond RP - Registro</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.imgur.com/Mn1Lz4Z.jpg') no-repeat center center fixed;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      background-image: url('fondo_violeta.png'); /* Asegúrate de tener esta imagen */
       background-size: cover;
-      color: white;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .contenedor {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 80px;
-      text-align: center;
-      width: 90%;
-      max-width: 300px;
+    h1 {
+      margin-top: 60px;
+      font-size: 36px;
+      color: white;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 1.2em;
-      color: white;
+    .subtitulo {
+      font-size: 20px;
+      color: #ccc;
+      margin-bottom: 10px;
     }
 
     .titulo-morado {
-      color: #5c2479; /* Morado oscuro */
+      color: #5a189a; /* Morado oscuro */
+      font-size: 38px;
       font-weight: bold;
     }
 
-    .descripcion {
-      font-size: 0.9em;
-      margin-bottom: 20px;
-      color: #ddd;
+    form {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    input[type="text"], input[type="password"] {
-      width: 100%;
+    input[type="text"],
+    input[type="password"] {
       padding: 10px;
-      margin-bottom: 10px;
+      margin: 10px;
       border: none;
       border-radius: 5px;
-      outline: none;
+      width: 250px;
+      font-size: 16px;
     }
 
-    .boton {
-      background-color: #5c2479;
-      color: white;
-      border: none;
+    button {
       padding: 10px 20px;
+      border: none;
+      background-color: #5a189a; /* Morado oscuro */
+      color: #fff;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
     }
 
-    .boton:hover {
-      background-color: #471c5e;
-    }
-
-    .link-olvido {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.8em;
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .link-olvido:hover {
-      text-decoration: underline;
-    }
-
-    .discord {
-      margin-top: 25px;
-    }
-
-    .discord a {
-      background-color: #5865F2;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
+    .mensaje {
+      margin-top: 20px;
       font-weight: bold;
     }
 
-    .discord a:hover {
-      background-color: #4854c7;
+    .discord-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #5865F2;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .discord-link:hover {
+      background-color: #4752c4;
+    }
+
+    .olvide {
+      margin-top: 15px;
+      color: #ddd;
+      text-decoration: underline;
+      font-size: 14px;
+      display: block;
     }
 
     .separador {
-      width: 90%;
-      margin: 30px auto 10px auto;
-      border: 0;
-      height: 1px;
-      background-color: rgba(255, 255, 255, 0.3);
+      margin: 40px 0 10px 0;
+      height: 2px;
+      background-color: #ccc;
+      width: 80%;
+      border: none;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="contenedor">
-    <h1>Bienvenido a <span class="titulo-morado">Diamond Roleplay</span></h1>
-    <div class="descripcion">Servidor de GTA:SA Online en Android & PC</div>
-    <form>
-      <input type="text" placeholder="Nombre_Apellido" required />
-      <input type="password" placeholder="Contraseña" required />
-      <button class="boton" type="submit">Entrar</button>
-    </form>
-    <a class="link-olvido" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
+
+  <h1>Bienvenido a <span class="titulo-morado">Diamond Roleplay</span></h1>
+  <div class="subtitulo">Servidor de GTA:SA Online en Android & PC</div>
+
+  <form onsubmit="return validarFormulario()">
+    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
+    <input type="password" id="contrasena" placeholder="Contraseña"><br>
+    <button type="submit">Entrar</button>
+    <a class="olvide" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
       Olvidé mi contraseña
     </a>
-  </div>
+  </form>
 
-  <div class="discord">
-    <a href="https://discord.gg/tu-invitacion" target="_blank">Únete a nuestro Discord</a>
-  </div>
+  <div class="mensaje" id="mensaje"></div>
 
-  <hr class="separador" />
+  <a class="discord-link" href="https://discord.gg/sv-diamond" target="_blank">
+    Únete a nuestro Discord
+  </a>
+
+  <hr class="separador">
+
+  <footer>
+    &copy; 2025 Diamond RP. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function validarFormulario() {
+      const nombreApellido = document.getElementById("nombreApellido").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (nombreApellido === "" || !nombreApellido.includes(" ")) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Por favor, escribe tu nombre y apellido.";
+        return false;
+      }
+
+      if (contrasena.length < 6) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return false;
+      }
+
+      mensaje.style.color = "lightgreen";
+      mensaje.textContent = "¡Registro exitoso!";
+      return false;
+    }
+  </script>
+
 </body>
 </html>
