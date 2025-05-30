@@ -1,165 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Diamond RP - Registro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamond Roleplay</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
-      text-align: center;
-      background-image: url('fondo_violeta.png'); /* Asegúrate de tener esta imagen */
+      background-image: url('fondo_convertido.png');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
       background-attachment: fixed;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    h1 {
-      margin-top: 60px;
-      font-size: 36px;
       color: white;
+      text-align: center;
     }
 
-    .subtitulo {
-      font-size: 20px;
-      color: #ccc;
-      margin-bottom: 10px;
-    }
-
-    .titulo-morado {
-      color: #5a189a; /* Morado oscuro */
-      font-size: 38px;
-      font-weight: bold;
-    }
-
-    form {
-      margin-top: 20px;
+    .login-container {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
+      max-width: 300px;
+      margin: 50px auto;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    input[type="text"], input[type="password"] {
+      width: 100%;
       padding: 10px;
-      margin: 10px;
+      margin: 10px 0;
       border: none;
-      border-radius: 5px;
-      width: 250px;
-      font-size: 16px;
+      border-radius: 4px;
     }
 
     button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #5a189a; /* Morado oscuro */
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .mensaje {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    .discord-link {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #5865F2;
+      background-color: #6a0dad;
       color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .discord-link:hover {
-      background-color: #4752c4;
-    }
-
-    .olvide {
-      margin-top: 15px;
-      color: #ddd;
-      text-decoration: underline;
-      font-size: 14px;
-      display: block;
-    }
-
-    .separador {
-      margin: 40px 0 10px 0;
-      height: 2px;
-      background-color: #ccc;
-      width: 80%;
+      padding: 10px;
       border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
     }
 
-    footer {
-      margin-top: auto;
-      margin-bottom: 20px;
-      color: #ddd;
-      font-size: 14px;
+    a {
+      color: #ccc;
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+
+    .discord-button {
+      background-color: #5865F2;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
 
-  <h1>Bienvenido a <span class="titulo-morado">Diamond Roleplay</span></h1>
-  <div class="subtitulo">Servidor de GTA:SA Online en Android & PC</div>
+  <h1><span style="color: #ffffff;">Diamond</span> <span style="color: #a349a4;">Roleplay</span></h1>
+  <p>Servidor de GTA:SA Online en Android & PC</p>
 
-  <form onsubmit="return validarFormulario()">
-    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
-    <input type="password" id="contrasena" placeholder="Contraseña"><br>
-    <button type="submit">Entrar</button>
-    <a class="olvide" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
-      Olvidé mi contraseña
-    </a>
-  </form>
+  <div class="login-container">
+    <form>
+      <input type="text" placeholder="Nombre_Apellido" required />
+      <input type="password" placeholder="Contraseña" required />
+      <button type="submit">Entrar</button>
+    </form>
+    <a href="#">Olvidé mi contraseña</a>
+  </div>
 
-  <div class="mensaje" id="mensaje"></div>
-
-  <a class="discord-link" href="https://discord.gg/sv-diamond" target="_blank">
-    Únete a nuestro Discord
-  </a>
-
-  <hr class="separador">
-
-  <footer>
-    &copy; 2025 Diamond RP. Todos los derechos reservados.
-  </footer>
-
-  <script>
-    function validarFormulario() {
-      const nombreApellido = document.getElementById("nombreApellido").value.trim();
-      const contrasena = document.getElementById("contrasena").value.trim();
-      const mensaje = document.getElementById("mensaje");
-
-      if (nombreApellido === "" || !nombreApellido.includes(" ")) {
-        mensaje.style.color = "red";
-        mensaje.textContent = "Por favor, escribe tu nombre y apellido.";
-        return false;
-      }
-
-      if (contrasena.length < 6) {
-        mensaje.style.color = "red";
-        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
-        return false;
-      }
-
-      mensaje.style.color = "lightgreen";
-      mensaje.textContent = "¡Registro exitoso!";
-      return false;
-    }
-  </script>
+  <a class="discord-button" href="https://discord.gg/tuservidor" target="_blank">Únete a nuestro Discord</a>
 
 </body>
 </html>
