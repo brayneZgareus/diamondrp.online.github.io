@@ -10,6 +10,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #fff;
+      text-align: center;
       background-image: url('fondo_convertido.png');
       background-size: cover;
       background-position: center;
@@ -19,13 +20,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
-    /* Icono hamburguesa */
-    .menu-hamburguesa {
+    /* MENÚ HAMBURGUESA */
+    #menuIcon {
       position: fixed;
-      top: 15px;
-      left: 15px;
+      top: 20px;
+      left: 20px;
       width: 30px;
       height: 25px;
       cursor: pointer;
@@ -34,65 +36,56 @@
       flex-direction: column;
       justify-content: space-between;
     }
-
-    .menu-hamburguesa span {
-      display: block;
+    #menuIcon div {
       height: 4px;
+      background-color: white;
       border-radius: 2px;
-      background-color: white; /* color blanco */
     }
 
-    /* Menú desplegable */
     #menu {
-      display: none;
       position: fixed;
-      top: 55px;
-      left: 15px;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 8px;
-      padding: 10px;
+      top: 0;
+      left: -220px; /* oculto a la izquierda */
+      width: 200px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 2px 0 5px rgba(0,0,0,0.7);
+      padding-top: 60px;
+      transition: left 0.3s ease;
       z-index: 1000;
-      width: 140px;
-      box-shadow: 0 0 10px #000;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #menu.open {
+      left: 0;
     }
 
     #menu button {
-      display: block;
-      width: 100%;
-      margin: 8px 0;
-      padding: 10px 0;
+      background: none;
       border: none;
-      border-radius: 6px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      font-size: 16px;
-      background-color: rgba(75, 0, 130, 0.8); /* fondo morado semi */
-      color: white; /* por defecto */
-      transition: background-color 0.3s ease;
-    }
-    /* Colores de texto específicos para cada botón */
-    #menu button.diamantes {
-      color: #ffd700; /* amarillo */
-      background-color: rgba(0,0,0,0.6);
-    }
-    #menu button.rango-socio {
-      color: #00bfff; /* celeste */
-      background-color: rgba(0,0,0,0.6);
-    }
-    #menu button.ayuda {
-      color: #4b0082; /* índigo */
-      background-color: rgba(0,0,0,0.6);
-    }
-    /* Hover para todos los botones */
-    #menu button:hover {
-      background-color: #4b0082;
+      padding: 10px 20px;
+      text-align: left;
       color: white;
+      transition: color 0.3s ease;
+    }
+    #menu button#btnDiamantes.openColor {
+      color: #FFD700; /* Amarillo */
+    }
+    #menu button#btnRangoSocio.openColor {
+      color: #00CED1; /* Celeste */
+    }
+    #menu button#btnAyuda.openColor {
+      color: #4b0082; /* Color botón "Entrar" */
     }
 
-    /* Texto principal y formulario */
     h1 {
       margin-top: 60px;
       color: white;
+      text-align: center;
     }
 
     .subtitulo {
@@ -127,7 +120,7 @@
       font-size: 16px;
     }
 
-    button {
+    button[type="submit"] {
       padding: 10px 20px;
       border: none;
       background-color: #4b0082;
@@ -196,40 +189,41 @@
       display: none;
     }
 
-    /* Párrafo debajo del carrusel con texto alineado a la izquierda y max width */
-    .descripcion {
-      margin-top: 20px;
-      max-width: 90%;
-      color: #ccc;
-      font-size: 16px;
-      text-align: left;
-    }
-
     footer {
       margin-top: auto;
       margin-bottom: 20px;
       color: #ddd;
       font-size: 14px;
     }
+
+    /* PÁRRAFO ALINEADO A LA IZQUIERDA */
+    .descripcion {
+      margin-top: 20px;
+      max-width: 90%;
+      color: #ccc;
+      font-size: 16px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
-  <!-- Icono hamburguesa -->
-  <div class="menu-hamburguesa" id="menuHamburguesa" tabindex="0" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
+  <!-- Menú hamburguesa -->
+  <div id="menuIcon" aria-label="Abrir menú" role="button" tabindex="0">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 
-  <!-- Menú desplegable -->
-  <div id="menu">
-    <button class="diamantes">Diamantes</button>
-    <button class="rango-socio">Rango Socio</button>
-    <button class="ayuda">Ayuda</button>
-  </div>
+  <nav id="menu" aria-hidden="true">
+    <button id="btnDiamantes">Diamantes</button>
+    <button id="btnRangoSocio">Rango Socio</button>
+    <button id="btnAyuda">Ayuda</button>
+  </nav>
 
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
-  <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
+  <div class="subtitulo">Servidor de GTA:SA Online En Android &amp; PC</div>
 
   <form onsubmit="return validarFormulario()">
     <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" /><br />
@@ -262,10 +256,10 @@
   </div>
 
   <p class="descripcion">
-    Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android
-    &amp; PC en el cual agregamos actualizaciones llamativas y optimizadas para
-    nuestros usuarios. En este sitio web podras encontrar toda la información
-    acerca del servidor.
+    Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En
+    Android &amp; PC en el cual agregamos actualizaciones llamativas y
+    optimizadas para nuestros usuarios. En este sitio web podras encontrar
+    toda la información acerca del servidor.
   </p>
 
   <footer>
@@ -273,7 +267,7 @@
   </footer>
 
   <script>
-    // Validar formulario (solo ejemplo)
+    // Validar formulario
     function validarFormulario() {
       const nombreApellido = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
@@ -306,30 +300,43 @@
       imagenes[index].style.display = "block";
     }, 3000);
 
-    // Toggle menú hamburguesa
-    const menuHamburguesa = document.getElementById("menuHamburguesa");
+    // Menú hamburguesa funcionalidad
+    const menuIcon = document.getElementById("menuIcon");
     const menu = document.getElementById("menu");
+    const btnDiamantes = document.getElementById("btnDiamantes");
+    const btnRangoSocio = document.getElementById("btnRangoSocio");
+    const btnAyuda = document.getElementById("btnAyuda");
 
-    menuHamburguesa.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
+    menuIcon.addEventListener("click", () => {
+      menu.classList.toggle("open");
+      actualizarColoresMenu();
+    });
+
+    // Cambiar color de las palabras al abrir/cerrar el menú
+    function actualizarColoresMenu() {
+      if (menu.classList.contains("open")) {
+        btnDiamantes.classList.add("openColor");
+        btnRangoSocio.classList.add("openColor");
+        btnAyuda.classList.add("openColor");
       } else {
-        menu.style.display = "block";
+        btnDiamantes.classList.remove("openColor");
+        btnRangoSocio.classList.remove("openColor");
+        btnAyuda.classList.remove("openColor");
+      }
+    }
+
+    // Cerrar menú si se hace clic fuera
+    document.addEventListener("click", (e) => {
+      if (
+        menu.classList.contains("open") &&
+        !menu.contains(e.target) &&
+        !menuIcon.contains(e.target)
+      ) {
+        menu.classList.remove("open");
+        actualizarColoresMenu();
       }
     });
 
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener("click", () => {
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-      }
-    });
-
-    // Evitar que clic dentro del menú cierre el menú
-    menu.addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
   </script>
 </body>
 </html>
