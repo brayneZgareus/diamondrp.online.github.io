@@ -1,33 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Diamond RP</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        img {
-            max-width: 90%;
-            height: auto;
-            border: 3px solid #00f0ff;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Diamond RP - Registro</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      background-image: url('imagen_mejorada.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 60px;
+      color: #00ffff;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #00ffff;
+      color: #000;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .discord-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #5865F2;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .discord-link:hover {
+      background-color: #4752c4;
+    }
+
+    footer {
+      margin-top: auto;
+      margin-bottom: 20px;
+      color: #ddd;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Bienvenido a Diamond RP</h1>
-    <p>¡Gracias por visitar nuestro sitio oficial!</p>
+  <h1>Bienvenido a<br>Diamond RP</h1>
 
-    <!-- Imagen subida -->
-    <img src="imagen_mejorada.png" alt="Imagen Diamond RP">
+  <form onsubmit="return validarFormulario()">
+    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
+    <input type="password" id="contrasena" placeholder="Contraseña"><br>
+    <button type="submit">Registrarse</button>
+  </form>
+
+  <div class="mensaje" id="mensaje"></div>
+
+  <a class="discord-link" href="https://discord.gg/sv-diamond" target="_blank">
+    Únete a nuestro Discord
+  </a>
+
+  <footer>
+    <br>&copy; 2025 Diamond RP. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function validarFormulario() {
+      const nombreApellido = document.getElementById("nombreApellido").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+      const mensaje = document.getElementById("mensaje");
+
+      if (nombreApellido === "" || !nombreApellido.includes(" ")) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Por favor, escribe tu nombre y apellido.";
+        return false;
+      }
+
+      if (contrasena.length < 6) {
+        mensaje.style.color = "red";
+        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        return false;
+      }
+
+      mensaje.style.color = "lightgreen";
+      mensaje.textContent = "¡Registro exitoso!";
+      return false;
+    }
+  </script>
 
 </body>
 </html>
