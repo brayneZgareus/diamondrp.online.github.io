@@ -1,93 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('img/imagen_mejorada.png'); /* Asegúrate de que esté en esa carpeta */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: white;
-    }
-
-    .contenedor {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex-grow: 1;
-    }
-
-    input {
-      margin: 10px;
-      padding: 10px;
-      width: 220px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: purple;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: darkviolet;
-    }
-
-    .boton-actualizar {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Diamond RP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            border: 3px solid #00f0ff;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-  <button class="boton-actualizar" onclick="verificarConexion()">Actualizar</button>
+    <h1>Bienvenido a Diamond RP</h1>
+    <p>¡Gracias por visitar nuestro sitio oficial!</p>
 
-  <div class="contenedor">
-    <input type="text" id="usuario" placeholder="Nombre_Apellido">
-    <input type="password" placeholder="Contraseña">
-    <button>Entrar</button>
-  </div>
-
-  <footer>
-    Derechos reservados © | 2025
-  </footer>
-
-  <script>
-    function verificarConexion() {
-      if (navigator.onLine) {
-        location.reload();
-      } else {
-        alert("Parece que no tienes conexión a internet.");
-      }
-    }
-  </script>
+    <!-- Imagen subida -->
+    <img src="imagen_mejorada.png" alt="Imagen Diamond RP">
 
 </body>
 </html>
