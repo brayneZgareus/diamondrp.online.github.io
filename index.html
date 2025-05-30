@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Diamond RP - Registro</title>
   <style>
     body {
@@ -10,7 +10,6 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #fff;
-      text-align: center;
       background-image: url('fondo_convertido.png');
       background-size: cover;
       background-position: center;
@@ -22,57 +21,75 @@
       align-items: center;
     }
 
+    /* Icono hamburguesa */
     .menu-hamburguesa {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    .menu-hamburguesa .barra {
+      position: fixed;
+      top: 15px;
+      left: 15px;
       width: 30px;
-      height: 4px;
-      background-color: white;
-      margin: 5px 0;
-      border-radius: 2px;
-    }
-
-    .menu-desplegable {
-      position: absolute;
-      top: 70px;
-      left: 20px;
-      background-color: rgba(0, 0, 0, 0.85);
-      border-radius: 10px;
-      padding: 10px;
-      display: none;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
       flex-direction: column;
-      gap: 10px;
-      z-index: 999;
+      justify-content: space-between;
     }
 
-    .menu-desplegable button {
+    .menu-hamburguesa span {
+      display: block;
+      height: 4px;
+      border-radius: 2px;
+      background-color: white; /* color blanco */
+    }
+
+    /* Menú desplegable */
+    #menu {
+      display: none;
+      position: fixed;
+      top: 55px;
+      left: 15px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
       padding: 10px;
+      z-index: 1000;
+      width: 140px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    #menu button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px 0;
       border: none;
-      border-radius: 5px;
-      color: white;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
+      font-size: 16px;
+      background-color: rgba(75, 0, 130, 0.8); /* fondo morado semi */
+      color: white; /* por defecto */
+      transition: background-color 0.3s ease;
     }
-
-    .btn-diamantes {
-      background-color: gold;
-      color: black;
+    /* Colores de texto específicos para cada botón */
+    #menu button.diamantes {
+      color: #ffd700; /* amarillo */
+      background-color: rgba(0,0,0,0.6);
     }
-
-    .btn-socio {
-      background-color: #00bfff;
+    #menu button.rango-socio {
+      color: #00bfff; /* celeste */
+      background-color: rgba(0,0,0,0.6);
     }
-
-    .btn-ayuda {
+    #menu button.ayuda {
+      color: #4b0082; /* índigo */
+      background-color: rgba(0,0,0,0.6);
+    }
+    /* Hover para todos los botones */
+    #menu button:hover {
       background-color: #4b0082;
+      color: white;
     }
 
+    /* Texto principal y formulario */
     h1 {
       margin-top: 60px;
       color: white;
@@ -179,6 +196,15 @@
       display: none;
     }
 
+    /* Párrafo debajo del carrusel con texto alineado a la izquierda y max width */
+    .descripcion {
+      margin-top: 20px;
+      max-width: 90%;
+      color: #ccc;
+      font-size: 16px;
+      text-align: left;
+    }
+
     footer {
       margin-top: auto;
       margin-bottom: 20px;
@@ -188,59 +214,66 @@
   </style>
 </head>
 <body>
-
-  <div class="menu-hamburguesa" onclick="toggleMenu()">
-    <div class="barra"></div>
-    <div class="barra"></div>
-    <div class="barra"></div>
+  <!-- Icono hamburguesa -->
+  <div class="menu-hamburguesa" id="menuHamburguesa" tabindex="0" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 
-  <div class="menu-desplegable" id="menuDesplegable">
-    <button class="btn-diamantes">Diamantes</button>
-    <button class="btn-socio">Rango Socio</button>
-    <button class="btn-ayuda">Ayuda</button>
+  <!-- Menú desplegable -->
+  <div id="menu">
+    <button class="diamantes">Diamantes</button>
+    <button class="rango-socio">Rango Socio</button>
+    <button class="ayuda">Ayuda</button>
   </div>
 
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
   <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
 
   <form onsubmit="return validarFormulario()">
-    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
-    <input type="password" id="contrasena" placeholder="Contraseña"><br>
+    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" /><br />
+    <input type="password" id="contrasena" placeholder="Contraseña" /><br />
     <button type="submit">Entrar</button>
   </form>
 
-  <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
-    ¿Olvidé mi contraseña?
-  </a>
+  <a
+    class="olvide-link"
+    href="https://discord.com/channels/1340329412998201484/1340333812583891026"
+    target="_blank"
+    >¿Olvidé mi contraseña?</a
+  >
 
   <div class="mensaje" id="mensaje"></div>
 
-  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">
-    Únete a nuestro Discord
-  </a>
+  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank"
+    >Únete a nuestro Discord</a
+  >
 
   <div class="separador"></div>
 
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
 
   <div class="carrusel">
-    <img src="casino.png" alt="Casino" style="display:block;">
-    <img src="peajes.png" alt="Sistema de Peajes">
-    <img src="stripclub.png" alt="Stripclub Roleplay">
-    <img src="apartamento.png" alt="Apartamentos Roleplay">
+    <img src="casino.png" alt="Casino" style="display: block" />
+    <img src="peajes.png" alt="Sistema de Peajes" />
+    <img src="stripclub.png" alt="Stripclub Roleplay" />
+    <img src="apartamento.png" alt="Apartamentos Roleplay" />
   </div>
 
-  <p style="margin-top: 20px; max-width: 90%; color: #ccc; font-size: 16px;">
-    Dimaond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android & PC 
-    en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podras encontrar toda la información acerca del servidor.
+  <p class="descripcion">
+    Diamond Roleplay Es un servidor de GTA:SA online Con disponibilidad En Android
+    &amp; PC en el cual agregamos actualizaciones llamativas y optimizadas para
+    nuestros usuarios. En este sitio web podras encontrar toda la información
+    acerca del servidor.
   </p>
 
   <footer>
-    <br>&copy; 2025 Diamond RP. Todos los derechos reservados.
+    <br />&copy; 2025 Diamond RP. Todos los derechos reservados.
   </footer>
 
   <script>
+    // Validar formulario (solo ejemplo)
     function validarFormulario() {
       const nombreApellido = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
@@ -263,21 +296,40 @@
       return false;
     }
 
-    function toggleMenu() {
-      const menu = document.getElementById("menuDesplegable");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-    }
-
     // Carrusel automático
     let index = 0;
-    const imagenes = document.querySelectorAll('.carrusel img');
+    const imagenes = document.querySelectorAll(".carrusel img");
 
     setInterval(() => {
-      imagenes[index].style.display = 'none';
+      imagenes[index].style.display = "none";
       index = (index + 1) % imagenes.length;
-      imagenes[index].style.display = 'block';
+      imagenes[index].style.display = "block";
     }, 3000);
-  </script>
 
+    // Toggle menú hamburguesa
+    const menuHamburguesa = document.getElementById("menuHamburguesa");
+    const menu = document.getElementById("menu");
+
+    menuHamburguesa.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    });
+
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener("click", () => {
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      }
+    });
+
+    // Evitar que clic dentro del menú cierre el menú
+    menu.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  </script>
 </body>
 </html>
