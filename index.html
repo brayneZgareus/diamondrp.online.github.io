@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Diamond RP - Registro</title>
+  <title>Diamond Roleplay - Registro</title>
   <style>
     body {
       margin: 0;
@@ -10,7 +10,7 @@
       font-family: Arial, sans-serif;
       color: #fff;
       text-align: center;
-      background-image: url('fondo_convertido.png');
+      background-image: url('fondo_convertido.png'); /* Asegúrate de tener esta imagen en tu carpeta */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -21,27 +21,28 @@
       align-items: center;
     }
 
-    h1 {
+    .titulo {
       margin-top: 60px;
-      font-size: 32px;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      font-size: 28px;
     }
 
-    .bienvenida {
+    .titulo span {
+      display: inline-block;
+    }
+
+    .bienvenido {
       color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
     }
 
     .nombre-servidor {
-      color: #4B0082;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      color: #5c1a8d; /* Morado oscuro */
+      font-weight: bold;
     }
 
     .descripcion {
-      margin-top: 5px;
       font-size: 16px;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      margin-top: 5px;
+      color: #ddd;
     }
 
     form {
@@ -64,29 +65,16 @@
     button {
       padding: 10px 20px;
       border: none;
-      background-color: #4B0082;
-      color: white;
+      background-color: #5c1a8d; /* Morado oscuro */
+      color: #fff;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
     }
 
-    .forgot-password {
-      display: block;
-      margin-top: 10px;
-      color: #ffffff;
-      text-decoration: underline;
-      font-size: 14px;
-    }
-
-    .forgot-password:hover {
-      color: #ccccff;
-    }
-
     .mensaje {
       margin-top: 20px;
       font-weight: bold;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
     }
 
     .discord-link {
@@ -105,29 +93,46 @@
       background-color: #4752c4;
     }
 
+    .olvide-contra {
+      margin-top: 10px;
+      display: block;
+      color: #ddd;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+
+    .olvide-contra:hover {
+      color: #fff;
+    }
+
+    .separador {
+      width: 60%;
+      margin: 30px auto 10px auto;
+      border: 0;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
     footer {
       margin-top: auto;
       margin-bottom: 20px;
       color: #ddd;
       font-size: 14px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
 <body>
 
-  <h1>
-    <span class="bienvenida">Bienvenido a</span> <span class="nombre-servidor">Diamond Roleplay</span>
-  </h1>
-  <p class="descripcion">Servidor de GTA:SA Online en Android & PC.</p>
+  <div class="titulo">
+    <span class="bienvenido">Bienvenido a </span><span class="nombre-servidor">Diamond Roleplay</span>
+    <div class="descripcion">Servidor de GTA:SA Online en Android & PC</div>
+  </div>
 
   <form onsubmit="return validarFormulario()">
     <input type="text" id="nombreApellido" placeholder="Nombre_Apellido"><br>
     <input type="password" id="contrasena" placeholder="Contraseña"><br>
     <button type="submit">Entrar</button>
-    <a class="forgot-password" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
-      Olvidé mi contraseña
-    </a>
+    <a class="olvide-contra" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">Olvidé mi contraseña</a>
   </form>
 
   <div class="mensaje" id="mensaje"></div>
@@ -136,8 +141,10 @@
     Únete a nuestro Discord
   </a>
 
+  <hr class="separador">
+
   <footer>
-    <br>&copy; 2025 Diamond Roleplay. Todos los derechos reservados.
+    &copy; 2025 Diamond Roleplay. Todos los derechos reservados.
   </footer>
 
   <script>
