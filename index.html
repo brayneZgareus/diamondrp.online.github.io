@@ -1,91 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-        body {
-            background: url('fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('img/imagen_mejorada.png'); /* Asegúrate de que esté en esa carpeta */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+    }
 
-        .actualizar-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: purple;
-            border: none;
-            padding: 10px 15px;
-            color: white;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+    }
 
-        .actualizar-btn:hover {
-            background-color: #a020f0;
-        }
+    input {
+      margin: 10px;
+      padding: 10px;
+      width: 220px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-        .formulario {
-            text-align: center;
-            margin-top: 150px;
-        }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-        input {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            width: 200px;
-            border: none;
-            border-radius: 5px;
-        }
+    button:hover {
+      background-color: darkviolet;
+    }
 
-        button.entrar {
-            padding: 10px 20px;
-            background-color: purple;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+    .boton-actualizar {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
 
-        .footer {
-            position: fixed;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            color: white;
-            font-size: 14px;
-        }
-    </style>
-    <script>
-        function recargarPagina() {
-            if (navigator.onLine) {
-                location.reload();
-            } else {
-                alert("No tienes conexión a Internet.");
-            }
-        }
-    </script>
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
 </head>
 <body>
 
-    <button class="actualizar-btn" onclick="recargarPagina()">Actualizar</button>
+  <button class="boton-actualizar" onclick="verificarConexion()">Actualizar</button>
 
-    <div class="formulario">
-        <h2>Iniciar sesión</h2>
-        <input type="text" placeholder="Nombre_Apellido" id="nombre">
-        <input type="password" placeholder="Contraseña">
-        <button class="entrar">Entrar</button>
-    </div>
+  <div class="contenedor">
+    <input type="text" id="usuario" placeholder="Nombre_Apellido">
+    <input type="password" placeholder="Contraseña">
+    <button>Entrar</button>
+  </div>
 
-    <div class="footer">
-        Derechos reservados © | 2025
-    </div>
+  <footer>
+    Derechos reservados © | 2025
+  </footer>
+
+  <script>
+    function verificarConexion() {
+      if (navigator.onLine) {
+        location.reload();
+      } else {
+        alert("Parece que no tienes conexión a internet.");
+      }
+    }
+  </script>
 
 </body>
 </html>
