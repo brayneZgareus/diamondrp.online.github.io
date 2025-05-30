@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diamond RP - Registro</title>
   <style>
     body {
@@ -15,7 +16,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -44,15 +45,17 @@
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       border-radius: 10px;
+      max-width: 90%;
+      width: 400px;
     }
 
     input[type="text"],
     input[type="password"] {
       padding: 10px;
-      margin: 10px;
+      margin: 10px 0;
       border: none;
       border-radius: 5px;
-      width: 250px;
+      width: 100%;
       font-size: 16px;
     }
 
@@ -64,6 +67,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+      width: 100%;
     }
 
     .mensaje {
@@ -117,7 +121,6 @@
       margin: 0 auto;
       border-radius: 10px;
       overflow: hidden;
-      border: 2px solid #fff;
     }
 
     .carrusel img {
@@ -159,10 +162,10 @@
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
 
   <div class="carrusel">
-    <img src="casino.png" alt="Robo al Casino" style="display:block;">
-    <img src="peajes.png" alt="Sistema de Peajes">
-    <img src="stripclub.png" alt="Stripclub Roleplay">
-    <img src="apartamento.png" alt="Apartamentos Roleplay">
+    <img src="imagenes/casino.png" alt="Casino" style="display:block;">
+    <img src="imagenes/peajes.png" alt="Sistema de Peajes">
+    <img src="imagenes/stripclub.png" alt="Stripclub Roleplay">
+    <img src="imagenes/apartamento.png" alt="Apartamentos Roleplay">
   </div>
 
   <footer>
