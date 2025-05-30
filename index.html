@@ -2,51 +2,89 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar Sesion</title>
+    <title></title>
     <style>
         body {
-            color: black;
-            text-align: center;
+            background: url('fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
+
+        .actualizar-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: purple;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .actualizar-btn:hover {
+            background-color: #a020f0;
+        }
+
         .formulario {
-            margin-top: 100px;
+            text-align: center;
+            margin-top: 150px;
         }
+
         input {
             display: block;
             margin: 10px auto;
             padding: 10px;
             width: 200px;
+            border: none;
+            border-radius: 5px;
         }
-        button {
+
+        button.entrar {
             padding: 10px 20px;
             background-color: purple;
             color: white;
             border: none;
             cursor: pointer;
             font-weight: bold;
+            border-radius: 5px;
         }
-        .link {
-            margin-top: 10px;
-        }
-        .link a {
-            color: blue;
-            text-decoration: underline;
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 14px;
         }
     </style>
+    <script>
+        function recargarPagina() {
+            if (navigator.onLine) {
+                location.reload();
+            } else {
+                alert("No tienes conexión a Internet.");
+            }
+        }
+    </script>
 </head>
 <body>
 
+    <button class="actualizar-btn" onclick="recargarPagina()">Actualizar</button>
+
     <div class="formulario">
-        <h2>Iniciar sesion</h2>
-        <input type="text" placeholder="Nombre_Apellido">
+        <h2>Iniciar sesión</h2>
+        <input type="text" placeholder="Nombre_Apellido" id="nombre">
         <input type="password" placeholder="Contraseña">
-        <button>Entrar</button>
-        <div class="link">
-            <a href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">
-                ¿Olvidaste tu contraseña?
-            </a>
-        </div>
+        <button class="entrar">Entrar</button>
+    </div>
+
+    <div class="footer">
+        Derechos reservados © | 2025
     </div>
 
 </body>
