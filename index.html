@@ -5,8 +5,310 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Diamond RP - Registro</title>
   <style>
-    /* (Estilos CSS sin cambios, igual que tu código original) */
-    /* ...[todo el contenido de tus estilos aquí]... */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url('fondo_convertido.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    #menuIcon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #menuIcon div {
+      height: 4px;
+      background-color: white;
+      border-radius: 2px;
+    }
+
+    #menu {
+      position: fixed;
+      top: 0;
+      left: -220px;
+      width: 200px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #menu.open {
+      left: 0;
+    }
+
+    #menu button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 20px;
+      text-align: left;
+      color: white;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    #menu button::after {
+      content: " +";
+      position: absolute;
+      right: 20px;
+    }
+
+    #menu.open #btnDiamantes.openColor::after,
+    #menu.open #btnRangoSocio.openColor::after,
+    #menu.open #btnAyuda.openColor::after {
+      content: " -";
+    }
+
+    #menu button#btnDiamantes.openColor {
+      color: #FFD700;
+    }
+
+    #menu button#btnRangoSocio.openColor {
+      color: #00CED1;
+    }
+
+    #menu button#btnAyuda.openColor {
+      color: #4b0082;
+    }
+
+    h1 {
+      margin-top: 80px;
+      color: white;
+      text-align: center;
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .titulo-rol {
+      color: #4b0082;
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      width: 100%;
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    input::placeholder {
+      text-align: center;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: #4b0082;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    .mensaje {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .olvide-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .olvide-link:hover {
+      text-decoration: underline;
+    }
+
+    .discord-link {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #5865F2;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .discord-link:hover {
+      background-color: #4752c4;
+    }
+
+    .separador {
+      width: 90%;
+      margin: 40px auto 20px;
+      border-top: 2px solid #ccc;
+    }
+
+    .titulo-actualizaciones {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .carrusel {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .carrusel img {
+      width: 100%;
+      display: none;
+    }
+
+    .descripcion {
+      margin-top: 20px;
+      max-width: 90%;
+      font-size: 16px;
+      text-align: left;
+      margin-left: auto;
+      margin-right: auto;
+      color: white;
+      /* modificado para que sea blanco y alineado izquierda */
+    }
+
+    .toggle-info {
+      margin: 20px auto;
+      text-align: left;
+      width: 90%;
+    }
+
+    .toggle-info button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .toggle-content {
+      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      text-align: left;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .toggle-content.open {
+      display: block;
+      opacity: 1;
+      height: auto;
+    }
+
+    .medios-pago-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin: 20px 0 10px;
+      padding: 0;
+    }
+
+    .medios-pago {
+      text-align: center;
+    }
+
+    .medios-pago p {
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0 0 5px;
+      padding: 0;
+    }
+
+    .medios-pago img {
+      max-width: 180px;
+      height: auto;
+      margin: 0;
+      display: block;
+    }
+
+    footer {
+      padding: 0;
+      margin: 0;
+      color: #ccc;
+      font-size: 13px;
+      text-align: center;
+    }
+
     /* Sección Rango Socio */
     .rango-socio-container {
       max-width: 600px;
@@ -65,147 +367,4 @@
     <div class="form-wrapper">
       <form onsubmit="return validarFormulario()">
         <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
-        <input type="password" id="contrasena" placeholder="Contraseña" />
-        <button type="submit">Entrar</button>
-      </form>
-      <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
-      <div class="mensaje" id="mensaje"></div>
-      <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
-    </div>
-
-    <div class="separador"></div>
-
-    <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
-    <div class="carrusel">
-      <img src="casino.png" alt="Casino" style="display: block" />
-      <img src="peajes.png" alt="Sistema de Peajes" />
-      <img src="stripclub.png" alt="Stripclub Roleplay" />
-      <img src="apartamento.png" alt="Apartamentos Roleplay" />
-    </div>
-    <p class="descripcion">
-      Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
-    </p>
-
-    <div class="toggle-info">
-      <button onclick="toggleInfo(this)">Información +</button>
-      <div class="toggle-content">
-        <img src="infosv.png" alt="información" style="width: 100%; max-width: 600px; margin-top: 10px;" />
-        <p>
-          Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP: sv.diamondrp.online<br />
-          Debes tener en cuenta el uso de APKs de terceros, ya que la mayoría contiene MODs y/o CLEOS ilegales los cuales son sancionados en nuestro servidor por otorgar ventajas injustas.
-        </p>
-      </div>
-    </div>
-
-    <div class="medios-pago-container">
-      <div class="medios-pago">
-        <p>Medios de pagos</p>
-        <img src="mediospago1.png" alt="Medios de Pago" />
-      </div>
-      <footer>&copy; 2025 Diamond RP | Todos los derechos reservados.</footer>
-    </div>
-  </div>
-
-  <!-- Sección Rango Socio -->
-  <div class="rango-socio-container" id="rangoSocioSection">
-    <h2>Beneficios Socio</h2>
-    <img src="p1" alt="Imagen p1" />
-    <div style="text-align: left; color: white; margin: 20px 0;">
-      <p>
-        En DiamondRP se creó el Rango Socio con el fin de financiar la mayoría de los proyectos que ofrecemos en nuestro servidor, como la financiación de los mantenimientos del host y sistemas únicos en servidores GTA:SA.
-      </p>
-      <p>
-        Al comprar esta membresía tendrás un rol especial en nuestro Discord oficial y los siguientes beneficios:
-      </p>
-    </div>
-    <img src="p2" alt="Imagen p2" />
-    <button class="btn-volver" id="btnVolver">Volver</button>
-  </div>
-
-  <script>
-    // Validar formulario
-    function validarFormulario() {
-      const nombre = document.getElementById("nombreApellido").value.trim();
-      const contrasena = document.getElementById("contrasena").value.trim();
-      const mensaje = document.getElementById("mensaje");
-
-      if (nombre === "" || !nombre.includes(" ")) {
-        mensaje.style.color = "red";
-        mensaje.textContent = "Escribe los datos de tu cuenta.";
-        return false;
-      }
-
-      if (contrasena.length < 6) {
-        mensaje.style.color = "red";
-        mensaje.textContent = "La contraseña debe tener al menos 6 caracteres.";
-        return false;
-      }
-
-      mensaje.style.color = "lightgreen";
-      mensaje.textContent = "¡Registro exitoso!";
-      return false; // Evita enviar el formulario para demo
-    }
-
-    // Carrusel imágenes
-    const imagenes = document.querySelectorAll(".carrusel img");
-    let index = 0;
-    setInterval(() => {
-      imagenes[index].style.display = "none";
-      index = (index + 1) % imagenes.length;
-      imagenes[index].style.display = "block";
-    }, 3000);
-
-    // Menú lateral toggle
-    const menuIcon = document.getElementById("menuIcon");
-    const menu = document.getElementById("menu");
-    const botones = menu.querySelectorAll("button");
-
-    menuIcon.addEventListener("click", () => {
-      menu.classList.toggle("open");
-      botones.forEach((btn) => {
-        btn.classList.toggle("openColor", menu.classList.contains("open"));
-      });
-    });
-
-    // Cerrar menú al hacer click fuera
-    document.addEventListener("click", (e) => {
-      if (
-        menu.classList.contains("open") &&
-        !menu.contains(e.target) &&
-        !menuIcon.contains(e.target)
-      ) {
-        menu.classList.remove("open");
-        botones.forEach((btn) => btn.classList.remove("openColor"));
-      }
-    });
-
-    // Toggle información
-    function toggleInfo(button) {
-      const content = button.nextElementSibling;
-      content.classList.toggle("open");
-      button.textContent = content.classList.contains("open")
-        ? "Información -"
-        : "Información +";
-    }
-
-    // Mostrar sección Rango Socio
-    const btnRangoSocio = document.getElementById("btnRangoSocio");
-    const rangoSocioSection = document.getElementById("rangoSocioSection");
-    const mainContent = document.getElementById("mainContent");
-    const btnVolver = document.getElementById("btnVolver");
-
-    btnRangoSocio.addEventListener("click", () => {
-      mainContent.style.display = "none";
-      rangoSocioSection.style.display = "block";
-      menu.classList.remove("open");
-      botones.forEach((btn) => btn.classList.remove("openColor"));
-    });
-
-    // Volver al contenido principal
-    btnVolver.addEventListener("click", () => {
-      rangoSocioSection.style.display = "none";
-      mainContent.style.display = "block";
-    });
-  </script>
-</body>
-</html>
+        <input type="password" id="contrasena"
