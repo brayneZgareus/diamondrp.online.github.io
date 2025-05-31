@@ -10,11 +10,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: #fff;
-      text-align: center;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       position: relative;
       overflow-x: hidden;
       z-index: 0;
@@ -103,14 +99,15 @@
     #menu button#btnAyuda.openColor { color: #4b0082; }
 
     h1 {
-      margin-top: 60px;
+      margin-top: 20px;
       color: white;
+      text-align: center;
     }
 
     .subtitulo {
       font-size: 18px;
-      margin-top: 5px;
       color: #ccc;
+      text-align: center;
     }
 
     .titulo-rol {
@@ -120,13 +117,24 @@
       margin-bottom: 10px;
     }
 
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      width: 100%;
+    }
+
     form {
-      margin-top: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       padding: 20px;
       border-radius: 10px;
       max-width: 90%;
       width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     input[type="text"],
@@ -158,6 +166,19 @@
     .mensaje {
       margin-top: 20px;
       font-weight: bold;
+      text-align: center;
+    }
+
+    .olvide-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .olvide-link:hover {
+      text-decoration: underline;
     }
 
     .discord-link {
@@ -176,18 +197,6 @@
       background-color: #4752c4;
     }
 
-    .olvide-link {
-      margin-top: 10px;
-      display: inline-block;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .olvide-link:hover {
-      text-decoration: underline;
-    }
-
     .separador {
       width: 90%;
       margin: 40px auto 20px;
@@ -198,6 +207,7 @@
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 20px;
+      text-align: center;
     }
 
     .carrusel {
@@ -289,28 +299,31 @@
       margin: 0;
       color: #ccc;
       font-size: 13px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div id="menuIcon">
-    <div></div><div></div><div></div>
-  </div>
+  <div id="menuIcon"><div></div><div></div><div></div></div>
   <nav id="menu">
     <button id="btnDiamantes">Diamantes</button>
     <button id="btnRangoSocio">Rango Socio</button>
     <button id="btnAyuda">Ayuda</button>
   </nav>
+
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
   <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
-  <form onsubmit="return validarFormulario()">
-    <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" /><br />
-    <input type="password" id="contrasena" placeholder="Contraseña" /><br />
-    <button type="submit">Entrar</button>
-  </form>
-  <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
-  <div class="mensaje" id="mensaje"></div>
-  <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+
+  <div class="form-wrapper">
+    <form onsubmit="return validarFormulario()">
+      <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
+      <input type="password" id="contrasena" placeholder="Contraseña" />
+      <button type="submit">Entrar</button>
+    </form>
+    <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
+    <div class="mensaje" id="mensaje"></div>
+    <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+  </div>
 
   <div class="separador"></div>
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
@@ -320,6 +333,7 @@
     <img src="stripclub.png" alt="Stripclub Roleplay" />
     <img src="apartamento.png" alt="Apartamentos Roleplay" />
   </div>
+
   <p class="descripcion">
     Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
   </p>
