@@ -272,20 +272,7 @@
       height: auto;
     }
 
-.toggle-buy {
-margin: 20px auto;
-text-align: left;
-width: 90%;
-}
 
-.toggle-buy button {  
-  background: none;  
-  border: none;  
-  color: #fff;  
-  font-size: 18px;  
-  font-weight: bold;  
-  cursor: pointer;  
-  text-align: left;  
 }  
 
 .toggle-content {  
@@ -537,14 +524,6 @@ Al comprar esta membresía tendrás un rol especial en nuestro discord seguido d
         ? "Información -"
         : "Información +";
     }
-
-function toggleInfo(button) {
-const content = button.nextElementSibling;
-content.classList.toggle("open");
-button.textContent = content.classList.contains("open")
-? "Compras -"
-: "Compras +";
-}
 
     
     // Mostrar sección Rango Socio
