@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,6 +19,7 @@
       overflow-x: hidden;
       z-index: 0;
     }
+
     body::before {
       content: "";
       position: fixed;
@@ -254,7 +256,13 @@
       height: auto;
     }
 
+    .medios-pago-container {
+      margin: 0;
+      padding: 0;
+    }
+
     .medios-pago {
+      text-align: center;
       margin: 0;
       padding: 0;
     }
@@ -264,18 +272,20 @@
       font-weight: bold;
       color: #fff;
       margin: 0;
+      padding: 0;
     }
 
     .medios-pago img {
       max-width: 180px;
+      width: auto;
       height: auto;
-      display: block;
       margin: 0 auto;
+      display: block;
     }
 
     footer {
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin: 0;
+      padding: 5px 0 10px;
       color: #ddd;
       font-size: 14px;
     }
@@ -297,9 +307,10 @@
     <input type="password" id="contrasena" placeholder="Contraseña" /><br />
     <button type="submit">Entrar</button>
   </form>
-  <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="_blank">¿Olvidé mi contraseña?</a>
+  <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
   <div class="mensaje" id="mensaje"></div>
   <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
+
   <div class="separador"></div>
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
   <div class="carrusel">
@@ -311,6 +322,7 @@
   <p class="descripcion">
     Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
   </p>
+
   <div class="toggle-info">
     <button onclick="toggleInfo(this)">Información +</button>
     <div class="toggle-content">
@@ -319,13 +331,17 @@
       Debes tener en cuenta el uso de APKs de terceros, ya que la mayoría contiene MODs y/o CLEOS ilegales los cuales son sancionados en nuestro servidor por otorgar ventajas injustas.</p>
     </div>
   </div>
-  <div class="medios-pago">
-    <p>Medios de pagos</p>
-    <img src="mediospago.png" alt="Medios de Pago">
+
+  <div class="medios-pago-container">
+    <div class="medios-pago">
+      <p>Medios de pagos</p>
+      <img src="mediospago.png" alt="Medios de Pago">
+    </div>
+    <footer>
+      &copy; 2025 Diamond RP | Todos los derechos reservados.
+    </footer>
   </div>
-  <footer>
-    &copy; 2025 Diamond RP | Todos los derechos reservados.
-  </footer>
+
   <script>
     function validarFormulario() {
       const nombreApellido = document.getElementById("nombreApellido").value.trim();
