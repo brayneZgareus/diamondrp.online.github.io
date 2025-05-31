@@ -257,51 +257,50 @@
     }
 
     .medios-pago-container {
-      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin: 20px 0 10px;
       padding: 0;
     }
 
     .medios-pago {
       text-align: center;
-      margin: 0;
-      padding: 0;
-      line-height: 1.2;
     }
 
     .medios-pago p {
       font-size: 14px;
       font-weight: bold;
       color: #fff;
-      margin: 0;
+      margin: 0 0 5px;
       padding: 0;
     }
 
     .medios-pago img {
       max-width: 180px;
-      width: auto;
       height: auto;
-      margin: 0 auto;
-      padding: 0;
+      margin: 0;
       display: block;
     }
 
     footer {
-      margin: 0;
       padding: 0;
-      color: #ddd;
-      font-size: 14px;
-      text-align: center;
+      margin: 0;
+      color: #ccc;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
-  <div id="menuIcon"><div></div><div></div><div></div></div>
+  <div id="menuIcon">
+    <div></div><div></div><div></div>
+  </div>
   <nav id="menu">
     <button id="btnDiamantes">Diamantes</button>
     <button id="btnRangoSocio">Rango Socio</button>
     <button id="btnAyuda">Ayuda</button>
   </nav>
-
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
   <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
   <form onsubmit="return validarFormulario()">
