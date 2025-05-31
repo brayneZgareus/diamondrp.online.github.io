@@ -272,6 +272,39 @@
       height: auto;
     }
 
+.toggle-buy {
+margin: 20px auto;
+text-align: left;
+width: 90%;
+}
+
+.toggle-buy button {  
+  background: none;  
+  border: none;  
+  color: #fff;  
+  font-size: 18px;  
+  font-weight: bold;  
+  cursor: pointer;  
+  text-align: left;  
+}  
+
+.toggle-content {  
+  display: none;  
+  opacity: 0;  
+  height: 0;  
+  overflow: hidden;  
+  transition: all 0.5s ease;  
+  text-align: left;  
+  color: #ccc;  
+  margin-top: 10px;  
+}  
+
+.toggle-content.open {  
+  display: block;  
+  opacity: 1;  
+  height: auto;  
+}
+    
     .medios-pago-container {
       display: flex;
       flex-direction: column;
@@ -505,6 +538,15 @@ Al comprar esta membresía tendrás un rol especial en nuestro discord seguido d
         : "Información +";
     }
 
+function toggleInfo(button) {
+const content = button.nextElementSibling;
+content.classList.toggle("open");
+button.textContent = content.classList.contains("open")
+? "Compras -"
+: "Compras +";
+}
+
+    
     // Mostrar sección Rango Socio
     const btnRangoSocio = document.getElementById("btnRangoSocio");
     const rangoSocioSection = document.getElementById("rangoSocioSection");
