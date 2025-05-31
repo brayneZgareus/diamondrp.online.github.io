@@ -13,7 +13,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -232,12 +231,11 @@
     .descripcion {
       margin-top: 20px;
       max-width: 90%;
+      color: #ccc;
       font-size: 16px;
       text-align: left;
       margin-left: auto;
       margin-right: auto;
-      color: white;
-      /* modificado para que sea blanco y alineado izquierda */
     }
 
     .toggle-info {
@@ -309,8 +307,8 @@
       text-align: center;
     }
 
-    /* Sección Rango Socio */
-    .rango-socio-container {
+    /* Sección Apartamentos */
+    .apartamentos-container {
       max-width: 600px;
       margin: 80px auto 40px;
       background: rgba(0, 0, 0, 0.7);
@@ -321,15 +319,16 @@
       color: #00CED1;
     }
 
-    .rango-socio-container h2 {
+    .apartamentos-container h2 {
       font-size: 36px;
       margin-bottom: 15px;
     }
 
-    .rango-socio-container img {
+    .apartamentos-container img {
       max-width: 100%;
       height: auto;
       margin: 15px 0;
+      border-radius: 10px;
     }
 
     .btn-volver {
@@ -342,6 +341,7 @@
       cursor: pointer;
       font-weight: bold;
     }
+
   </style>
 </head>
 <body>
@@ -355,7 +355,7 @@
   <!-- Menú lateral -->
   <nav id="menu">
     <button id="btnDiamantes">Diamantes</button>
-    <button id="btnRangoSocio">Rango Socio</button>
+    <button id="btnRangoSocio">Apartamentos</button>
     <button id="btnAyuda">Ayuda</button>
   </nav>
 
@@ -363,8 +363,12 @@
   <div id="mainContent">
     <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
     <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
-
     <div class="form-wrapper">
       <form onsubmit="return validarFormulario()">
         <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
-        <input type="password" id="contrasena"
+        <input type="password" id="contrasena" placeholder="Contraseña" />
+        <button type="submit">Entrar</button>
+      </form>
+      <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
+      <div class="mensaje" id="mensaje"></div>
+      <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
