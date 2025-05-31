@@ -76,7 +76,13 @@
   <script>
     function toggleRangoSocio() {
       const container = document.getElementById('rangoSocio');
-      container.style.display = container.style.display === 'none' ? 'block' : 'none';
+      const button = document.querySelector('.toggle-button');
+      const isVisible = container.style.display === 'block';
+
+      container.style.display = isVisible ? 'none' : 'block';
+      button.textContent = isVisible
+        ? 'Mostrar Beneficios Socio'
+        : 'Ocultar Beneficios Socio';
     }
   </script>
 </body>
