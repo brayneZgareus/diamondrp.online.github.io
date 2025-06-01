@@ -1,405 +1,311 @@
 <DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diamond RP - Registro</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" 1" />
+ <title>Diamond RP - Registro</title>
+ <style>
+ body {
+ margin: 0;
+ padding: 0;
+ font-family: Arial, sans-serif;
+ color: #fff;
+ min-height: 100vh;
+ overflow-x: hidden;
+ }
 
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-image: url('fondock.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
+ body::before {
+ content: "";
+ position: fixed;
+ efore {
+ content: "";
+ position: fixed;
+ : fixed;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-image: url('fondock.png');
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ z-index: -1;
+ }
 
-    #menuIcon {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 30px;
-      height: 25px;
-      cursor: pointer;
-      z-index: 1001;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+ #menuIcon {
+ position: fixed;
+ top: 20px;
+ left: 20px;
+ width: 30px;
+ height: 25px;
+ cursor: pointer;
+ z-index: 1001;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ }
 
-    #menuIcon div {
-      height: 4px;
-      background-color: white;
-      border-radius: 2px;
-    }
+ #menuIcon div {
+ height: 4px;
+ background-color: white;
+ border-radius: 2px;
+ }
 
-    #menu {
-      position: fixed;
-      top: 0;
-      left: -220px;
-      width: 200px;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.85);
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
-      padding-top: 60px;
-      transition: left 0.3s ease;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+ #menu {
+ position: fixed;
+ enuIcon div {
+ height: 4px;
+ background-color: white;
+ border-radius: 2px;
+ }
 
-    #menu.open {
-      left: 0;
-    }
+ #menu {
+ position: fixed;
+ {
+ position: fixed;
+ ed;
+ top: 0;
+ left: -220px;
+ width: 200px;
+ height: 100vh;
+ background-color: rgba(0, 0, 0, 0.85);
+ box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
+ padding-top: 60px;
+ transition: left 0.3s ease;
+ z-index: 1000;
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+ }
 
-    #menu button {
-      background: none;
-      border: none;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 10px 20px;
-      text-align: left;
-      color: white;
-      transition: color 0.3s ease;
-      position: relative;
-    }
+ #menu.open {
+ left: 0;
+ }
 
-    #menu button::after {
-      content: " +";
-      position: absolute;
-      right: 20px;
-    }
+ #menu button {
+ background: none;
+ border: none;
+ font-size: 18px;
+ font-weight: bold;
+ cursor: pointer;
+ padding: 10px 20px;
+ text-align: left;
+ color: white;
+ transition: color 0.3s ease;
+ position: relative;
+ }
 
-    #menu.open #btnDiamantes.openColor::after,
-    #menu.open #btnRangoSocio.openColor::after,
-    #menu.open #btnAyuda.openColor::after {
-      content: " -";
-    }
+ #menu button::after {
+ content: " +";
+ position: absolute;
+ right: 20px;
+ }
 
-    #menu button#btnDiamantes.openColor {
-      color: #FFD700;
-    }
+ #menu.open #btnDiamantes.openColor::after,
+ #menu.open #btnRangoSocio.openColor::after,
+ #menu.open #btnAyuda.openColor::after {
+ content: " -";
+ }
 
-    #menu button#btnRangoSocio.openColor {
-      color: #00CED1;
-    }
+ #menu button#btnDiamantes.openColor {
+ color: #FFD700;
+ }
 
-    #menu button#btnAyuda.openColor {
-      color: #4b0082;
-    }
+ #menu button#btnRangoSocio.openColor {
+ color: #00CED1;
+ }
 
-    h1 {
-      margin-top: 80px;
-      color: white;
-      text-align: center;
-    }
+ #menu button#btnAyuda.openColor {
+ color: #4b0082;
+ }
 
-    .subtitulo {
-      font-size: 18px;
-      color: #ccc;
-      text-align: center;
-    }
+ h1 ton#btnDiamantes.openColor {
+ color: #FFD700;
+ }
 
-    .titulo-rol {
-      color: #4b0082;
-      font-size: 32px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+ #menu button#btnRangoSocio.openColor {
+ color: #00CED1;
+ }
 
-    .form-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-      width: 100%;
-    }
+ #menu button#btnAyuda.openColor {
+ color: #4b0082;
+ }
 
-    form {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 90%;
-      width: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+ h1 color: #4b0082;
+ }
 
-    input[type="text"],
-    input[type="password"] {
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      width: 100%;
-      font-size: 16px;
-      text-align: center;
-    }
+ h1 
 
-    input::placeholder {
-      text-align: center;
-    }
+ h1 h1 {
+ margin-top: 80px;
+ color: white;
+ text-align: center;
+ }
 
-    button[type="submit"] {
-      padding: 10px 20px;
-      border: none;
-      background-color: #4b0082;
-      color: #fff;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-    }
+ .subtitulo {
+ font-size: 18px;
+ color: #ccc;
+ text-align: center;
+ }
 
-    .mensaje {
-      margin-top: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
+ .titulo-rol {
+ color: #4b0082;
+ font-size: 32px;
+ font-weight: bold;
+ margin-bottom: 10px;
+ }
 
-    .olvide-link {
-      margin-top: 10px;
-      display: inline-block;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-    }
+ .form-wrapper {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ min-height: 50vh;
+ width: 100%;
+ }
 
-    .olvide-link:hover {
-      text-decoration: underline;
-    }
+ form {
+ background-color: rgba(0, 0, 0, 0.6);
+ padding: 20px;
+ border-radius: 10px;
+ max-width: 90%;
+ width: 280px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
 
-    .discord-link {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #5865F2;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
+ input[type="text"],
+ input[type="password"] {
+ padding: 10px;
+ margin: 10px 0;
+ border: none;
+ border-radius: 5px;
+ width: 100%;
+ font-size: 16px;
+ text-align: center;
+ }
 
-    .discord-link:hover {
-      background-color: #4752c4;
-    }
+ input::placeholder {
+ text-align: center;
+ }
 
-    .separador {
-      width: 90%;
-      margin: 40px auto 20px;
-      border-top: 2px solid #ccc;
-    }
+ button[type="submit"] {
+ padding: 10px 20px;
+ border: none;
+ background-color: #4b0082;
+ color: #fff;
+ border-radius: 5px;
+ cursor: pointer;
+ font-weight: bold;
+ width: 100%;
+ }
 
-    .titulo-actualizaciones {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+ .mensaje ter;
+ }
 
-    .carrusel {
-      width: 90%;
-      max-width: 800px;
-      margin: 0 auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+ button[type="submit"] {
+ padding: 10px 20px;
+ border: none;
+ background-color: #4b0082;
+ color: #fff;
+ border-radius: 5px;
+ cursor: pointer;
+ font-weight: bold;
+ width: 100%;
+ }
 
-    .carrusel img {
-      width: 100%;
-      display: none;
-    }
+ .mensaje eight: bold;
+ width: 100%;
+ }
 
-    .descripcion {
-      margin-top: 20px;
-      max-width: 90%;
-      color: #ccc;
-      font-size: 16px;
-      text-align: left;
-      margin-left: auto;
-      margin-right: auto;
-    }
+ .mensaje {
+ margin-top: 20px;
+ font-weight: bold;
+ text-align: center;
+ }
 
-    .toggle-info {
-      margin: 20px auto;
-      text-align: left;
-      width: 90%;
-    }
+ .olvide-link {
+ margin-top: 10px;
+ display: inline-block;
+ color: #ccc;
+ text-decoration: none;
+ font-size: 14px;
+ }
 
-    .toggle-info button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      text-align: left;
-    }
+ .olvide-link:hover {
+ text-decoration: underline;
+ }
 
-    .toggle-content {
-      display: none;
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      transition: all 0.5s ease;
-      text-align: left;
-      color: #ccc;
-      margin-top: 10px;
-    }
+ .discord-link {
+ display: inline-block;
+ margin-top: 30px;
+ background-color: #5865F2;
+ color: white;
+ padding: 12px 20px;
+ border-radius: 8px;
+ text-decoration: none;
+ font-weight: bold;
+ transition: background 0.3s;
+ }
 
-    .toggle-content.open {
-      display: block;
-      opacity: 1;
-      height: auto;
-    }
-  </style>
-</head>
-<body>
-  <!-- Icono menú -->
-  <div id="menuIcon">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+ .discord-link:hover {
+ background-color: #4752c4;
+ }
 
-  <!-- Menú lateral -->
-  <nav id="menu">
-    <button id="btnDiamantes">Diamantes</button>
-    <button id="btnRangoSocio">Rango Socio</button>
-    <button id="btnAyuda">Ayuda</button>
-  </nav>
+ .separador {
+ width: 90%;
+ margin: 40px auto 20px;
+ border-top: 2px solid #ccc;
+ }
 
-  <!-- Contenido principal -->
-  <div id="mainContent">
+ .titulo-actualizaciones {
+ font-size: 20px;
+ font-weight: bold;
+ margin-bottom: 20px;
+ text-align: center;
+ }
 
-    <!-- Tu contenido original -->
-    <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
-    <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
+ .carrusel {
+ width: 90%;
+ max-width: 800px;
+ margin: 0 auto;
+ border-radius: 10px;
+ overflow: hidden;
+ }
 
-    <div class="form-wrapper">
-      <form onsubmit="return validarFormulario()">
-        <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
-        <input type="password" id="contrasena" placeholder="Contraseña" />
-        <button type="submit">Entrar</button>
-      </form>
-      <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
-      <div class="mensaje" id="mensaje"></div>
-      <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
-    </div>
+ .carrusel img {
+ width: 100%;
+ display: none;
+ }
 
-    <div class="separador"></div>
+ .descripcion {
+ margin-top: 20px;
+ max-width: 90%;
+ color: #ccc;
+ font-size: 16px;
+ text-align: left;
+ margin-left: dius: 10px;
+ overflow: hidden;
+ }
 
-    <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
-    <div class="carrusel">
-      <img src="casino.png" alt="Casino" style="display: block" />
-      <img src="peajes.png" alt="Sistema de Peajes" />
-      <img src="stripclub.png" alt="Stripclub Roleplay" />
-      <img src="apartamento.png" alt="Apartamentos Roleplay" />
-    </div>
-    <p class="descripcion">
-      Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
-    </p>
+ .carrusel img {
+ width: 100%;
+ display: none;
+ }
 
-    <div class="toggle-info">
-      <button onclick="toggleInfo(this)">Información +</button>
-      <div class="toggle-content">
-        <img src="infosv.png" alt="información" style="width: 100%; max-width: 600px; margin-top: 10px;">
-        <p>
-          Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP: sv.diamondrp.online<br>
-          Debes tener en cuenta el uso de APKs de terceros, ya que la mayoría contiene MODs y/o CLEOS ilegales los cuales son sancionados en nuestro servidor por otorgar ventajas injustas.
-        </p>
-      </div>
-    </div>
+ .descripcion {
+ margin-top: 20px;
+ max-width: 90%;
+ color: #ccc;
+ font-size: 16px;
+ text-align: left;
+ margin-left: t-size: 16px;
+ text-align: left;
+ margin-left: auto;
+ margin-right: auto;
+ }
 
-    <div class="medios-pago-container">
-      <div class="medios-pago">
-        <p>Medios de pagos</p>
-        <img src="mediospago1.png" alt="Medios de Pago" />
-      </div>
-      <footer>&copy; 2025 Diamond RP | Todos los derechos reservados.</footer>
-    </div>
-
-    <!-- Sección Diamantes, oculta por defecto -->
-    <div id="seccionDiamantes">
-      <h2 style="color:#FFD700; text-align:center;">Sección Diamantes</h2>
-      <h3 style="color:#fff; text-align:center;">¡Bienvenido a la sección de Diamantes!</h3>
-      <!-- Imágenes -->
-      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px;">
-        <img src="imagen1.png" alt="Imagen 1" style="width:150px; height:auto;">
-        <img src="imagen2.png" alt="Imagen 2" style="width:150px; height:auto;">
-        <img src="imagen3.png" alt="Imagen 3" style="width:150px; height:auto;">
-        <img src="imagen4.png" alt="Imagen 4" style="width:150px; height:auto;">
-      </div>
-      <!-- Texto adicional -->
-      <p style="color:#ccc; max-width:600px; margin:20px auto; font-size:16px; text-align:center;">
-        Aquí puedes poner información adicional sobre Diamantes, beneficios, o lo que desees.
-      </p>
-      <!-- Botón volver -->
-      <div style="text-align:center;">
-        <button onclick="toggleDiamantes()">Volver</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Toggle menú
-    document.getElementById('menuIcon').addEventListener('click', function() {
-      document.getElementById('menu').classList.toggle('open');
-    });
-
-    // Toggle info
-    function toggleInfo(btn) {
-      const content = btn.nextElementSibling;
-      if (content.classList.contains('open')) {
-        content.classList.remove('open');
-        btn.innerText = 'Información +';
-      } else {
-        content.classList.add('open');
-        btn.innerText = 'Información -';
-      }
-    }
-
-    // Mostrar sección Diamantes
-    function mostrarDiamantes() {
-      document.getElementById('seccionDiamantes').style.display = 'block';
-      // Resalta el botón activo
-      document.querySelectorAll('#menu button').forEach(b => b.classList.remove('active'));
-      document.getElementById('btnDiamantes').classList.add('active');
-    }
-
-    // Ocultar sección Diamantes
-    function toggleDiamantes() {
-      const sec = document.getElementById('seccionDiamantes');
-      if (sec.style.display === 'none' || sec.style.display === '') {
-        sec.style.display = 'block';
-      } else {
-        sec.style.display = 'none';
-      }
-    }
-
-    // Cuando clickea en "Diamantes"
-    document.getElementById('btnDiamantes').addEventListener('click', function() {
-      mostrarDiamantes();
-    });
-  </script>
-</body>
-</html>
+ .toggle-info {
+ margin: 20px auto;
+   
