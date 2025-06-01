@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Diamond RP - Página</title>
 <style>
-  /* Estilos base, ajustados para tu diseño */
-
   body {
     margin: 0;
     padding: 0;
@@ -22,7 +20,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url('fondock.png');
+    background-image: url('fondock.png'); /* Cambia a tu fondo */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +53,7 @@
     left: -220px;
     width: 200px;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0,0,0,0.85);
     box-shadow: 2px 0 5px rgba(0,0,0,0.7);
     padding-top: 60px;
     transition: left 0.3s ease;
@@ -67,7 +65,6 @@
   #menu.open {
     left: 0;
   }
-
   #menu button {
     background: none;
     border: none;
@@ -88,18 +85,7 @@
   #menu button.active::after {
     content: " –";
   }
-  /* Estilo para botón activo (cambiar color) */
-  #btnDiamantes.active {
-    color: #FFD700;
-  }
-  #btnRangoSocio.active {
-    color: #00CED1;
-  }
-  #btnAyuda.active {
-    color: #4b0082;
-  }
-
-  /* Sección Diamantes (oculta por defecto) */
+  /* Estilos para la sección Diamantes */
   #seccionDiamantes {
     display: none;
     padding: 20px;
@@ -109,7 +95,7 @@
     max-width: 800px;
   }
 
-  /* Otros estilos que ya tienes en tu código original, los mantengo en este ejemplo: */
+  /* Estilos existentes en tu código */
   h1 {
     margin-top: 80px;
     color: white;
@@ -135,7 +121,7 @@
     width: 100%;
   }
   form {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0,0,0,0.6);
     padding: 20px;
     border-radius: 10px;
     max-width: 90%;
@@ -242,18 +228,11 @@
   }
   .toggle-content {
     display: none;
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
     transition: all 0.5s ease;
-    text-align: left;
-    color: #ccc;
     margin-top: 10px;
   }
   .toggle-content.open {
     display: block;
-    opacity: 1;
-    height: auto;
   }
 </style>
 </head>
@@ -276,27 +255,26 @@
 <!-- Contenido principal -->
 <div id="mainContent">
 
+  <!-- Tu contenido original -->
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
   <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
 
-  <!-- Formulario de login -->
   <div class="form-wrapper">
     <form onsubmit="return validarFormulario()">
       <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
       <input type="password" id="contrasena" placeholder="Contraseña" />
       <button type="submit">Entrar</button>
     </form>
-    <a class="olvide-link" href="https://discord.com/channels/1340329412998201484/1340333812583891026" target="blank">¿Olvidé mi contraseña?</a>
+    <a class="olvide-link" href="#">¿Olvidé mi contraseña?</a>
     <div class="mensaje" id="mensaje"></div>
     <a class="discord-link" href="https://discord.gg/QRHsheTvah" target="_blank">Únete a nuestro Discord</a>
   </div>
 
   <div class="separador"></div>
 
-  <!-- Actualizaciones -->
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
   <div class="carrusel">
-    <img src="casinov.png" alt="Casino" style="display: block" />
+    <img src="casino.png" alt="Casino" style="display: block" />
     <img src="peajes.png" alt="Sistema de Peajes" />
     <img src="stripclub.png" alt="Stripclub Roleplay" />
     <img src="apartamento.png" alt="Apartamentos Roleplay" />
@@ -317,7 +295,7 @@
     </div>
   </div>
 
-  <!-- Medios pago -->
+  <!-- Medios de pago -->
   <div class="medios-pago-container">
     <div class="medios-pago">
       <p>Medios de pagos</p>
@@ -326,7 +304,7 @@
     <footer>&copy; 2025 Diamond RP | Todos los derechos reservados.</footer>
   </div>
 
-  <!-- Sección Diamantes que aparece al hacer clic -->
+  <!-- Sección Diamantes que se despliega -->
   <div id="seccionDiamantes">
     <h2 style="color:#FFD700; text-align:center;">Sección Diamantes</h2>
     <h3 style="color:#fff; text-align:center;">¡Bienvenido a la sección de Diamantes!</h3>
@@ -348,9 +326,8 @@
   </div>
 </div>
 
-<!-- Scripts -->
 <script>
-  // Toggle menu
+  // Mostrar/Ocultar menú
   document.getElementById('menuIcon').addEventListener('click', function() {
     document.getElementById('menu').classList.toggle('open');
   });
@@ -370,7 +347,7 @@
   // Mostrar sección Diamantes
   function mostrarDiamantes() {
     document.getElementById('seccionDiamantes').style.display = 'block';
-    // Resaltar botón activo
+    // Resalta el botón activo
     document.querySelectorAll('#menu button').forEach(b => b.classList.remove('active'));
     document.getElementById('btnDiamantes').classList.add('active');
   }
@@ -385,11 +362,10 @@
     }
   }
 
-  // Evento botón "Diamantes"
+  // Cuando clickea en "Diamantes"
   document.getElementById('btnDiamantes').addEventListener('click', function() {
     mostrarDiamantes();
   });
 </script>
-
 </body>
 </html>
