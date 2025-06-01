@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Diamond RP - Página</title>
 <style>
+  /* Estilos base, ajustados para tu diseño */
+
   body {
     margin: 0;
     padding: 0;
@@ -54,13 +56,13 @@
     width: 200px;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.85);
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.7);
     padding-top: 60px;
     transition: left 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 1000;
+    z-index: 999;
   }
   #menu.open {
     left: 0;
@@ -73,7 +75,7 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    color: white;
+    color: #fff;
     text-align: left;
     transition: color 0.3s ease;
     position: relative;
@@ -86,7 +88,7 @@
   #menu button.active::after {
     content: " –";
   }
-  /* Colores específicos para botones activos */
+  /* Estilo para botón activo (cambiar color) */
   #btnDiamantes.active {
     color: #FFD700;
   }
@@ -97,7 +99,7 @@
     color: #4b0082;
   }
 
-  /* Sección Diamantes (oculta) */
+  /* Sección Diamantes (oculta por defecto) */
   #seccionDiamantes {
     display: none;
     padding: 20px;
@@ -107,8 +109,152 @@
     max-width: 800px;
   }
 
-  /* Mantener estilos existentes en tu código si tienes más estilos */
-  /* ... (otros estilos que ya tienes en tu código) ... */
+  /* Otros estilos que ya tienes en tu código original, los mantengo en este ejemplo: */
+  h1 {
+    margin-top: 80px;
+    color: white;
+    text-align: center;
+  }
+  .subtitulo {
+    font-size: 18px;
+    color: #ccc;
+    text-align: center;
+  }
+  .titulo-rol {
+    color: #4b0082;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    width: 100%;
+  }
+  form {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
+  input::placeholder {
+    text-align: center;
+  }
+  button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4b0082;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+  }
+  .mensaje {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .olvide-link {
+    margin-top: 10px;
+    display: inline-block;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .olvide-link:hover {
+    text-decoration: underline;
+  }
+  .discord-link {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #5865F2;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .discord-link:hover {
+    background-color: #4752c4;
+  }
+  .separador {
+    width: 90%;
+    margin: 40px auto 20px;
+    border-top: 2px solid #ccc;
+  }
+  .titulo-actualizaciones {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .carrusel {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .carrusel img {
+    width: 100%;
+    display: none;
+  }
+  .descripcion {
+    margin-top: 20px;
+    max-width: 90%;
+    color: #ccc;
+    font-size: 16px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .toggle-info {
+    margin: 20px auto;
+    text-align: left;
+    width: 90%;
+  }
+  .toggle-info button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+  }
+  .toggle-content {
+    display: none;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    text-align: left;
+    color: #ccc;
+    margin-top: 10px;
+  }
+  .toggle-content.open {
+    display: block;
+    opacity: 1;
+    height: auto;
+  }
 </style>
 </head>
 <body>
@@ -129,10 +275,11 @@
 
 <!-- Contenido principal -->
 <div id="mainContent">
+
   <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
   <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
 
-  <!-- Tu contenido aquí -->
+  <!-- Formulario de login -->
   <div class="form-wrapper">
     <form onsubmit="return validarFormulario()">
       <input type="text" id="nombreApellido" placeholder="Nombre_Apellido" />
@@ -146,6 +293,7 @@
 
   <div class="separador"></div>
 
+  <!-- Actualizaciones -->
   <div class="titulo-actualizaciones">Nuestras Próximas Actualizaciones</div>
   <div class="carrusel">
     <img src="casinov.png" alt="Casino" style="display: block" />
@@ -157,17 +305,19 @@
     Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
   </p>
 
+  <!-- Información toggle -->
   <div class="toggle-info">
     <button onclick="toggleInfo(this)">Información +</button>
     <div class="toggle-content">
-      <img src="infosv.png" alt="información" style="width: 100%; max-width: 600px; margin-top: 10px;" />
+      <img src="infosv.png" alt="información" style="width: 100%; max-width: 600px; margin-top: 10px;">
       <p>
-        Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP: sv.diamondrp.online<br />
+        Para poder jugar nuestro servidor en cualquier APK debes de colocar este formato de nuestra IP: sv.diamondrp.online<br>
         Debes tener en cuenta el uso de APKs de terceros, ya que la mayoría contiene MODs y/o CLEOS ilegales los cuales son sancionados en nuestro servidor por otorgar ventajas injustas.
       </p>
     </div>
   </div>
 
+  <!-- Medios pago -->
   <div class="medios-pago-container">
     <div class="medios-pago">
       <p>Medios de pagos</p>
@@ -176,36 +326,36 @@
     <footer>&copy; 2025 Diamond RP | Todos los derechos reservados.</footer>
   </div>
 
-  <!-- Sección Diamantes -->
+  <!-- Sección Diamantes que aparece al hacer clic -->
   <div id="seccionDiamantes">
     <h2 style="color:#FFD700; text-align:center;">Sección Diamantes</h2>
     <h3 style="color:#fff; text-align:center;">¡Bienvenido a la sección de Diamantes!</h3>
-    <!-- Aquí tus 4 imágenes PNG -->
+    <!-- Imágenes -->
     <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px;">
       <img src="imagen1.png" alt="Imagen 1" style="width:150px; height:auto;">
       <img src="imagen2.png" alt="Imagen 2" style="width:150px; height:auto;">
       <img src="imagen3.png" alt="Imagen 3" style="width:150px; height:auto;">
       <img src="imagen4.png" alt="Imagen 4" style="width:150px; height:auto;">
     </div>
-    <!-- Párrafo -->
+    <!-- Texto adicional -->
     <p style="color:#ccc; max-width:600px; margin:20px auto; font-size:16px; text-align:center;">
       Aquí puedes poner información adicional sobre Diamantes, beneficios, o lo que desees.
     </p>
-    <!-- Botón Volver -->
+    <!-- Botón volver -->
     <div style="text-align:center;">
-      <button class="btn-volver" onclick="toggleDiamantes()">Volver</button>
+      <button onclick="toggleDiamantes()">Volver</button>
     </div>
   </div>
 </div>
 
 <!-- Scripts -->
 <script>
-  // Para abrir/cerrar el menú
+  // Toggle menu
   document.getElementById('menuIcon').addEventListener('click', function() {
     document.getElementById('menu').classList.toggle('open');
   });
 
-  // Para toggle de info
+  // Toggle info
   function toggleInfo(btn) {
     const content = btn.nextElementSibling;
     if (content.classList.contains('open')) {
@@ -220,29 +370,26 @@
   // Mostrar sección Diamantes
   function mostrarDiamantes() {
     document.getElementById('seccionDiamantes').style.display = 'block';
+    // Resaltar botón activo
+    document.querySelectorAll('#menu button').forEach(b => b.classList.remove('active'));
+    document.getElementById('btnDiamantes').classList.add('active');
   }
 
-  // Ocultar/toggle sección Diamantes
+  // Ocultar sección Diamantes
   function toggleDiamantes() {
-    const section = document.getElementById('seccionDiamantes');
-    if (section.style.display === 'none' || section.style.display === '') {
-      section.style.display = 'block';
+    const sec = document.getElementById('seccionDiamantes');
+    if (sec.style.display === 'none' || sec.style.display === '') {
+      sec.style.display = 'block';
     } else {
-      section.style.display = 'none';
+      sec.style.display = 'none';
     }
   }
 
-  // Evento para botón "Diamantes"
+  // Evento botón "Diamantes"
   document.getElementById('btnDiamantes').addEventListener('click', function() {
     mostrarDiamantes();
-
-    // Cambio de estilos en los botones
-    document.querySelectorAll('#menu button').forEach(btn => btn.classList.remove('active'));
-    this.classList.add('active');
-
-    // Opcional: cambiar color del botón activo
-    document.querySelector('#btnDiamantes').classList.add('active');
   });
 </script>
+
 </body>
 </html>
