@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Diamond RP - Registro</title>
   <style>
-    /* (Tu CSS original completo sigue aquí sin cambios) */
-    /* ... */
+    /* Tu CSS original... */
 
-    /* Sección Rango Socio y Diamantes (comparten estilo) */
     .rango-socio-container {
       max-width: 600px;
       margin: 80px auto 40px;
@@ -44,21 +42,21 @@
   </style>
 </head>
 <body>
-  <!-- Icono para abrir/cerrar menú -->
+
+  <!-- Menú -->
   <div id="menuIcon">
     <div></div>
     <div></div>
     <div></div>
   </div>
 
-  <!-- Menú lateral -->
   <nav id="menu">
     <button id="btnDiamantes">Diamantes</button>
     <button id="btnRangoSocio">Rango Socio</button>
     <button id="btnAyuda">Ayuda</button>
   </nav>
 
-  <!-- Contenido principal -->
+  <!-- Página principal -->
   <div id="mainContent">
     <h1>Bienvenido a <span class="titulo-rol">Diamond Roleplay</span></h1>
     <div class="subtitulo">Servidor de GTA:SA Online En Android & PC</div>
@@ -83,6 +81,7 @@
       <img src="stripclub.png" alt="Stripclub Roleplay" />
       <img src="apartamento.png" alt="Apartamentos Roleplay" />
     </div>
+
     <p class="descripcion">
       Diamond Roleplay es un servidor de GTA:SA online con disponibilidad en Android & PC en el cual agregamos actualizaciones llamativas y optimizadas para nuestros usuarios. En este sitio web podrás encontrar toda la información acerca del servidor.
     </p>
@@ -132,8 +131,8 @@
     <button class="btn-volver" id="btnVolverDiamantes">Volver</button>
   </div>
 
+  <!-- Script -->
   <script>
-    // Validar formulario
     function validarFormulario() {
       const nombre = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
@@ -153,10 +152,9 @@
 
       mensaje.style.color = "lightgreen";
       mensaje.textContent = "¡Registro exitoso!";
-      return false; // Demo: evita enviar
+      return false;
     }
 
-    // Carrusel imágenes
     const imagenes = document.querySelectorAll(".carrusel img");
     let index = 0;
     setInterval(() => {
@@ -165,40 +163,28 @@
       imagenes[index].style.display = "block";
     }, 3000);
 
-    // Menú lateral toggle
     const menuIcon = document.getElementById("menuIcon");
     const menu = document.getElementById("menu");
     const botones = menu.querySelectorAll("button");
 
     menuIcon.addEventListener("click", () => {
       menu.classList.toggle("open");
-      botones.forEach((btn) => {
-        btn.classList.toggle("openColor", menu.classList.contains("open"));
-      });
+      botones.forEach((btn) => btn.classList.toggle("openColor", menu.classList.contains("open")));
     });
 
-    // Cerrar menú al hacer click fuera
     document.addEventListener("click", (e) => {
-      if (
-        menu.classList.contains("open") &&
-        !menu.contains(e.target) &&
-        !menuIcon.contains(e.target)
-      ) {
+      if (menu.classList.contains("open") && !menu.contains(e.target) && !menuIcon.contains(e.target)) {
         menu.classList.remove("open");
         botones.forEach((btn) => btn.classList.remove("openColor"));
       }
     });
 
-    // Toggle información
     function toggleInfo(button) {
       const content = button.nextElementSibling;
       content.classList.toggle("open");
-      button.textContent = content.classList.contains("open")
-        ? "Información -"
-        : "Información +";
+      button.textContent = content.classList.contains("open") ? "Información -" : "Información +";
     }
 
-    // Mostrar sección Rango Socio
     const btnRangoSocio = document.getElementById("btnRangoSocio");
     const rangoSocioSection = document.getElementById("rangoSocioSection");
     const mainContent = document.getElementById("mainContent");
@@ -217,7 +203,6 @@
       mainContent.style.display = "block";
     });
 
-    // Mostrar sección Diamantes
     const btnDiamantes = document.getElementById("btnDiamantes");
     const diamantesSection = document.getElementById("diamantesSection");
 
@@ -236,4 +221,4 @@
     });
   </script>
 </body>
-  </html>
+      </html>
