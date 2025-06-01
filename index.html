@@ -292,10 +292,18 @@
     }
 
     /* ======== Ajustes para móviles ======== */
+#menu {
+  width: 200px;
+  max-width: 80vw;
+}
+
 @media screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
+  #menu {
+    width: 80vw;
+    max-width: 280px;
+    left: -80vw;
   }
+}
 
   #menu {
     width: 160px;
