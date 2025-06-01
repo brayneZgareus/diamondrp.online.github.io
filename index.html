@@ -111,7 +111,7 @@
     }
 
     .subtitulo {
-      font-size: 18px;
+      font-size: 16px;
       color: #ccc;
       text-align: center;
     }
@@ -205,7 +205,7 @@
     }
 
     .carrusel {
-      width: 90%;
+      width: 100%;
       max-width: 800px;
       margin: 0 auto;
       border-radius: 10px;
@@ -290,6 +290,99 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    /* ======== Ajustes para móviles ======== */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  #menu {
+    width: 160px;
+    left: -160px;
+  }
+
+  #menu.open {
+    left: 0;
+  }
+
+  #menu button {
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-top: 60px;
+  }
+
+  .titulo-rol {
+    font-size: 24px;
+  }
+
+  .form-wrapper {
+    width: 100%;
+    padding: 0 10px;
+    min-height: auto;
+  }
+
+  form {
+    width: 100%;
+    max-width: none;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  button[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .separador {
+    width: 95%;
+    margin: 30px auto 15px;
+  }
+
+  .titulo-actualizaciones {
+    font-size: 18px;
+  }
+
+  .carrusel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .descripcion,
+  .toggle-info {
+    width: 95%;
+  }
+
+  .rango-socio-container {
+    margin: 40px 10px 20px;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .rango-socio-container h2 {
+    font-size: 24px;
+  }
+
+  .btn-volver {
+    width: 100%;
+  }
+
+  .medios-pago-container {
+    margin: 10px 0;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
   </style>
 </head>
 <body>
