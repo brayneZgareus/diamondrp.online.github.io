@@ -341,6 +341,13 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+    .imagen-diamante {
+  display: block;
+  margin: 15px auto;
+  max-width: 90%;
+  border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -409,22 +416,42 @@
 
   <!-- Sección Rango Socio -->
   <div class="rango-socio-container" id="rangoSocioSection">
-    <div <h4>Beneficio Socio</h4></div>
-    <div <img src="logosos.png" alt="logo" /></div>
-    <p>En DianondRP se creó el Rango Socio con el fin de financiar la mayoría de los proyectos que ofrecemos en nuestro servidor, como la financiación de los Mantenimientos Host y Sistemas únicos en Servidores GTA:SA.
+     <h3>Beneficio Socio</h3>
+    <img src="logosos.png" alt="logo" />
+    <p> En DiamondRP se creó el Rango Socio con el fin de financiar la mayoría de los proyectos
+      que ofrecemos en nuestro servidor, como la financiación de los Mantenimientos Host y Sistemas
+      únicos en Servidores GTA:SA.
+    </p>
+  
 
-<div style="height:20px;"></div>
-
-Al comprar esta membresía tendrás un rol especial en nuestro discord oficial seguido de los siguientes beneficios: X
-
-      .</p>
-    <img src="p2" alt="Imagen p2" />
+<p>Al comprar esta membresía tendrás un rol especial en nuestro discord oficial
+  seguido de los siguientes beneficios: X
+</p>
+  
     <button class="btn-volver" id="btnVolver">Volver</button>
   </div>
 
-  <script>
+  <div class="rango-socio-container" id="diamantesSection">
+  <h2 style="margin-bottom: 15px;">Compra de Diamantes</h2>
+  
+  <img src="diamante1.png" alt="Diamantes Imagen 1" class="imagen-diamante" />
+  <img src="diamante2.png" alt="Diamantes Imagen 2" class="imagen-diamante" />
+  <img src="diamante3.png" alt="Diamantes Imagen 3" class="imagen-diamante" />
+  <img src="diamante4.png" alt="Diamantes Imagen 4" class="imagen-diamante" />
+  
+  <p style="margin-top: 20px;">
+    Los diamantes son la moneda premium en Diamond RP.
+    Con ellos puedes adquirir beneficios únicos como vehículos exclusivos, acceso VIP,
+    mejoras visuales, propiedades y más. ¡Apóyanos y disfruta de ventajas exclusivas!
+  </p>
+
+  <button class="btn-volver" id="btnVolverDiamantes">Volver</button>
+  </div>
+
+      <script>
     // Validar formulario
-    function validarFormulario() {
+    function validarFormulario() 
+  {
       const nombre = document.getElementById("nombreApellido").value.trim();
       const contrasena = document.getElementById("contrasena").value.trim();
       const mensaje = document.getElementById("mensaje");
@@ -504,6 +531,22 @@ Al comprar esta membresía tendrás un rol especial en nuestro discord oficial s
     // Volver al contenido principal
     btnVolver.addEventListener("click", () => {
       rangoSocioSection.style.display = "none";
+      mainContent.style.display = "block";
+    });
+      const btnDiamantes = document.getElementById("btnDiamantes");
+    const diamantesSection = document.getElementById("diamantesSection");
+
+    btnDiamantes.addEventListener("click", () => {
+      mainContent.style.display = "none";
+      rangoSocioSection.style.display = "none";
+      diamantesSection.style.display = "block";
+      menu.classList.remove("open");
+      botones.forEach((btn) => btn.classList.remove("openColor"));
+    });
+
+    const btnVolverDiamantes = document.getElementById("btnVolverDiamantes");
+    btnVolverDiamantes.addEventListener("click", () => {
+      diamantesSection.style.display = "none";
       mainContent.style.display = "block";
     });
   </script>
