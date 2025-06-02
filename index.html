@@ -388,6 +388,29 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
+  .diamantes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* espacio invisible entre imágenes */
+  align-items: center;
+  margin-top: 20px;
+  background-color: transparent; /* mantener fondo translúcido */
+  }
+    .diamantes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* espacio invisible entre imágenes */
+  align-items: center;
+  margin-top: 20px;
+  background-color: transparent; /* mantener fondo translúcido */
+}
+
+.imagen-diamante {
+  width: 100px; /* o el tamaño que quieras */
+  border-radius: 8px;
+}
+    
   </style>
 </head>
 <body>
@@ -474,10 +497,12 @@ h1 {
   <div class="rango-socio-container" id="diamantesSection">
   <h3>Precios Diamonds</h3>
   
+  <div class="diamantes">
   <img src="diamante1.png" alt="diamante1" class="imagen-diamante" />
   <img src="diamante2.png" alt="diamante2" class="imagen-diamante" />
   <img src="diamante3.png" alt="diamante3" class="imagen-diamante" />
   <img src="diamante4.png" alt="diamante4" class="imagen-diamante" />
+  </div>
   
   <p style="margin-top: 20px;">
     Los diamantes son la moneda premium en Diamond RP.
