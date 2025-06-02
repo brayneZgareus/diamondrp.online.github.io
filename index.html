@@ -347,8 +347,17 @@
   display: block;
   margin: 15px auto;
   max-width: 90%;
+  height: auto;
   border-radius: 8px;
     }
+
+    .contenedor-imagenes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 10px; /* espacio entre imágenes */
+  max-width: 400px; /* opcional: para controlar el tamaño */
+  margin: 0 auto; /* centrar */
+}
 
     #mainContent {
   display: flex;
