@@ -410,7 +410,31 @@ h1 {
   width: 100px; /* o el tamaño que quieras */
   border-radius: 8px;
 }
-    
+
+    .diamond-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Espacio entre elementos */
+}
+
+.diamond-item img {
+  width: 80px; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+  margin-right: 20px; /* Espacio entre la imagen y el botón */
+}
+
+.buy-button {
+  padding: 10px 20px;
+  background-color: #007BFF; /* Color de fondo del botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background-color: #0056b3; /* Color al pasar el cursor */
+}
   </style>
 </head>
 <body>
@@ -496,13 +520,22 @@ h1 {
 
   <div class="rango-socio-container" id="diamantesSection">
   <h3>Precios Diamonds</h3>
-  
-  <div class="diamantes">
-  <img src="diamante1.png" alt="diamante1" class="imagen-diamante" />
-  <img src="diamante2.png" alt="diamante2" class="imagen-diamante" />
-  <img src="diamante3.png" alt="diamante3" class="imagen-diamante" />
-  <img src="diamante4.png" alt="diamante4" class="imagen-diamante" />
-  </div>
+<div class="diamond-item">
+  <img src="diamante1.png" alt="Diamante 1">
+  <button class="buy-button">Comprar</button>
+</div>
+<div class="diamond-item">
+  <img src="diamante2.png" alt="Diamante 2">
+  <button class="buy-button">Comprar</button>
+</div>
+<div class="diamond-item">
+  <img src="diamante3.png" alt="Diamante 3">
+  <button class="buy-button">Comprar</button>
+</div>
+<div class="diamond-item">
+  <img src="diamante4.png" alt="Diamante 4">
+  <button class="buy-button">Comprar</button>
+</div>
   
   <p style="margin-top: 20px;">
     Los diamantes son la moneda premium en Diamond RP.
@@ -571,6 +604,63 @@ h1 {
       }
     });
 
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+        menu.classList.remove("open");
+        botones.forEach((btn) => btn.classList.remove("openColor"));
+      }
+    });
+
+    // Mostrar secciones
+    const btnDiamantes = document.getElementById("btnDiamantes");
+    const btnRangoSocio = document.getElementById("btnRangoSocio");
+    const btnAyuda = document.getElementById("btnAyuda");
+
+    const mainContent = document.getElementById("mainContent");
+    const diamantesSection = document.getElementById("diamantesSection");
+    const rangoSocioSection = document.getElementById("rangoSocioSection");
+
+    btnDiamantes.addEventListener("click", () => {
+      menu.classList.remove("open");
+      botones.forEach((btn) => btn.classList.remove("openColor"));
+      diamantesSection.style.display = "block";
+      rangoSocioSection.style.display = "none";
+      mainContent.style.display = "none";
+    });
+
+    btnRangoSocio.addEventListener("click", () => {
+      menu.classList.remove("open");
+      botones.forEach((btn) => btn.classList.remove("openColor"));
+      rangoSocioSection.style.display = "block";
+      diamantesSection.style.display = "none";
+      mainContent.style.display = "none";
+    });
+
+    btnAyuda.addEventListener("click", () => {
+      alert("Para más información únete a nuestro Discord: discord.gg/QRHsheTvah");
+    });
+
+    // Botones Volver
+    const btnVolver = document.getElementById("btnVolver");
+    const btnVolverDiamantes = document.getElementById("btnVolverDiamantes");
+
+    btnVolver.addEventListener("click", () => {
+      rangoSocioSection.style.display = "none";
+      mainContent.style.display = "flex";
+    });
+
+    btnVolverDiamantes.addEventListener("click", () => {
+      diamantesSection.style.display = "none";
+      mainContent.style.display = "flex";
+    });
+
+    // Mostrar información desplegable
+    function toggleInfo(button) {
+      const content = button.nextElementSibling;
+      const isOpen = content.classList.toggle("open");
+      button.textContent = isOpen ? "Información -" : "Información +";
+    }
+  
     // Toggle información
     function toggleInfo(button) {
       const content = button.nextElementSibling;
@@ -614,6 +704,118 @@ h1 {
       diamantesSection.style.display = "none";
       mainContent.style.display = "block";
     });
+
+  // Mostrar sección Diamantes
+  document.getElementById("btnDiamantes").addEventListener("click", function () {
+    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("rangoSocioSection").style.display = "none";
+    document.getElementById("diamantesSection").style.display = "block";
+    menu.classList.remove("open");
+  });
+
+  // Mostrar sección Rango Socio
+  document.getElementById("btnRangoSocio").addEventListener("click", function () {
+    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("diamantesSection").style.display = "none";
+    document.getElementById("rangoSocioSection").style.display = "block";
+    menu.classList.remove("open");
+  });
+
+  // Botón volver desde Rango Socio
+  document.getElementById("btnVolver").addEventListener("click", function () {
+    document.getElementById("rangoSocioSection").style.display = "none";
+    document.getElementById("mainContent").style.display = "flex";
+  });
+
+  // Botón volver desde Diamantes
+  document.getElementById("btnVolverDiamantes").addEventListener("click", function () {
+    document.getElementById("diamantesSection").style.display = "none";
+    document.getElementById("mainContent").style.display = "flex";
+  });
+
+        document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+// Referencias a elementos
+const menu = document.getElementById("menu");
+const menuIcon = document.getElementById("menuIcon");
+const btnDiamantes = document.getElementById("btnDiamantes");
+const btnRangoSocio = document.getElementById("btnRangoSocio");
+const btnAyuda = document.getElementById("btnAyuda");
+
+const mainContent = document.getElementById("mainContent");
+const diamantesSection = document.getElementById("diamantesSection");
+const rangoSocioSection = document.getElementById("rangoSocioSection");
+
+const btnVolver = document.getElementById("btnVolver");
+const btnVolverDiamantes = document.getElementById("btnVolverDiamantes");
+
+const botones = [btnDiamantes, btnRangoSocio, btnAyuda]; // para manejo visual (ejemplo)
+
+// Función para quitar clase activa de botones
+function resetActiveButtons() {
+  botones.forEach(btn => btn.classList.remove("active"));
+}
+
+// Abrir menú hamburguesa
+menuIcon.addEventListener("click", () => {
+  menu.classList.toggle("open");
+});
+
+// Cerrar menú si se clickea fuera
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !menuIcon.contains(e.target)) {
+    menu.classList.remove("open");
+    resetActiveButtons();
+  }
+});
+
+// Mostrar sección Diamantes
+btnDiamantes.addEventListener("click", () => {
+  mainContent.style.display = "none";
+  rangoSocioSection.style.display = "none";
+  diamantesSection.style.display = "block";
+  menu.classList.remove("open");
+  resetActiveButtons();
+  btnDiamantes.classList.add("active");
+});
+
+// Mostrar sección Rango Socio
+btnRangoSocio.addEventListener("click", () => {
+  mainContent.style.display = "none";
+  diamantesSection.style.display = "none";
+  rangoSocioSection.style.display = "block";
+  menu.classList.remove("open");
+  resetActiveButtons();
+  btnRangoSocio.classList.add("active");
+});
+
+// Mostrar alerta ayuda
+btnAyuda.addEventListener("click", () => {
+  alert("Para más información únete a nuestro Discord: discord.gg/QRHsheTvah");
+  menu.classList.remove("open");
+  resetActiveButtons();
+});
+
+// Botón Volver desde Rango Socio
+btnVolver.addEventListener("click", () => {
+  rangoSocioSection.style.display = "none";
+  mainContent.style.display = "flex";
+  resetActiveButtons();
+});
+
+// Botón Volver desde Diamantes
+btnVolverDiamantes.addEventListener("click", () => {
+  diamantesSection.style.display = "none";
+  mainContent.style.display = "flex";
+  resetActiveButtons();
+});
+
+// Función toggle para mostrar/ocultar información extra (usada en mainContent)
+function toggleInfo(button) {
+  const content = button.nextElementSibling;
+  content.classList.toggle("open");
+  button.textContent = content.classList.contains("open") ? "Información -" : "Información +";
+}
   </script>
 </body>
 </html>
