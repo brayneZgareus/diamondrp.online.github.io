@@ -344,11 +344,16 @@
     }
 
     .imagen-diamante {
-  display: block;
-  margin: 15px auto;
-  max-width: 90%;
+  float: left;
+  margin: 10px 15px 10px 0;  /* Arriba, derecha, abajo, izquierda */
+  max-width: 250px;
   border-radius: 8px;
-    }
+}
+
+.texto-beneficio {
+  overflow: hidden;
+}
+  
 
     #mainContent {
   display: flex;
@@ -371,7 +376,7 @@ h1 {
   text-align: center;
 }
 
-/* Párrafos alineados a la izquierda con un ancho máximo para no quedar muy ancho */
+/* Párrafos alineados a lauierda con un ancho máximo para no quedar muy ancho */
 #rangoSocioSection p,
 #diamantesSection p {
   text-align: left;
@@ -402,11 +407,13 @@ h1 {
   color: #008000; /* verde */
 }
 
-.beneficios div {
-  margin-bottom: 2px;
-  text-align: center;
-  /* Puedes ajustarlo a tu gusto */
-    }
+.beneficios {
+  text-align: left;
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
     
   </style>
 </head>
